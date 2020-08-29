@@ -26,7 +26,7 @@ function Navbar () {
                 {/* <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a> */}
               </li>
               <li className="nav-item mr-3">
-                <a className="nav-link" href="/">About Us</a>
+                <a className="nav-link" href="/"><Link className="nav-Link" to="/AboutUs">About Us</Link></a>
               </li>
               <li className="nav-item mr-3">
                 <a className="nav-link" href="/">Charities and Support</a>
@@ -35,7 +35,7 @@ function Navbar () {
                 <a className="nav-link dropdown-toggle" href="/" id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Artist Directory</a>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a className="dropdown-item" href="/">Artists</a>
-                  <a className="dropdown-item" href="/">Singers</a>
+                  <a className="dropdown-item" href="/"><Link  className="nav-Link" to="/ArtistDirectory">Singers</Link></a>
                   <a className="dropdown-item" href="/">Musicians</a>
                   <a className="dropdown-item" href="/">Artors</a>
                   <a className="dropdown-item" href="/">Comedians</a>
@@ -68,7 +68,7 @@ function Navbar () {
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a className="dropdown-item" href="/">Profile</a>
-                  <a className="dropdown-item" href="/">Account Settings</a>
+                  <a className="dropdown-item" href="/"><Link  className="nav-Link" to="/UpdateInfo">Update Info</Link></a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/">Sign Out</a>
                 </div>
