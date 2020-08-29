@@ -8,6 +8,9 @@ import GFooter from "./components/GFooter/index.jsx";
 //Pages
 import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"
+import ArtistDirectory from "./pages/ArtistDirectory"
+import AboutUs from "./pages/AboutUs"
+import UpdateInfo from "./pages/UpdateInfo.js";
 
 
 
@@ -23,6 +26,12 @@ function App() {
         <Route exact path={["/","/home"]} component={Home}>
         </Route>
         <Route path="/WhatsOn" component={WhatsOn}>
+        </Route>
+        <Route path="/ArtistDirectory" component={ArtistDirectory}>
+        </Route>
+        <Route path="/AboutUs" component={AboutUs}>
+        </Route>
+        <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
         
       </Switch> 
