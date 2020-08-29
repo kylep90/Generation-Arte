@@ -4,5 +4,6 @@ module.exports = {
     User: require( './user' ),
     Artwork: require( './artwork' ),
     Comment: require( './comment' ),
-    Like: require( './like' )
+    Like: require( './like' ),
+    Event: require( './event' )
 };

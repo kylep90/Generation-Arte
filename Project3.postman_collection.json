@@ -144,6 +144,75 @@
 			"response": []
 		},
 		{
+			"name": "GET Events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41ed11d6-7aca-4ad7-b522-13a259f98362",
+						"exec": [
+							"var jsonData = pm.response.json(),",
+							"    resource = jsonData[0];",
+							"pm.environment.set(\"eventId\", resource._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/events/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e72a713-d03d-4416-adc0-76f090fbcac7",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/events/{{eventId}}/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"events",
+						"{{eventId}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET Artwork",
 			"request": {
 				"method": "GET",

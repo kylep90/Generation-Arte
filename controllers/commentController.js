@@ -6,6 +6,7 @@ module.exports = {
             .find( req.query )
             .populate( 'user' )
             .populate( 'artwork' )
+            .populate( 'event' )
             .sort( { email: 1 } )
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
@@ -15,6 +16,7 @@ module.exports = {
             .findById( req.params.id )
             .populate( 'user' )
             .populate( 'artwork' )
+            .populate( 'event' )
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422).json( err ) );
     },
@@ -23,6 +25,7 @@ module.exports = {
             .find( { user: req.params.id } )
             .populate( 'user' )
             .populate( 'artwork' )
+            .populate( 'event' )
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
     },
@@ -31,6 +34,16 @@ module.exports = {
             .find( { artwork: req.params.id } )
             .populate( 'user' )
             .populate( 'artwork' )
+            .populate( 'event' )
+                .then( dbModel => res.json( dbModel ) )
+                .catch( err => res.status( 422 ).json( err ) );
+    },
+    findByEventId: function( req, res ) {
+        db.Comment
+            .find( { event: req.params.id } )
+            .populate( 'user' )
+            .populate( 'artwork' )
+            .populate( 'event' )
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
     },

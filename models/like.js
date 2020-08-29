@@ -10,6 +10,10 @@ const likeSchema = new Schema( {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Artwork'
     },
+    event: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event'
+    }
 } );
 
 const Like = mongoose.model( 'Like', likeSchema );

@@ -15,6 +15,10 @@ const commentSchema = new Schema( {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Artwork'
     },
+    event: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Event'
+    },
     public: {
         type: Boolean,
         trim: true,
