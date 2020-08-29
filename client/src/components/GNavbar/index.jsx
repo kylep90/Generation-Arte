@@ -54,6 +54,11 @@ function Navbar () {
               <li className="nav-item mr-3">
                 <a className="nav-link" href="/">Contact Us</a>
               </li>
+              <li className="nav-item mr-3">
+
+                <a className="nav-link"><Link className="nav-Link" to="/LogInForm">Log In</Link></a>
+              </li>
+
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
