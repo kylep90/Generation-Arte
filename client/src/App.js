@@ -11,6 +11,7 @@ import WhatsOn from "./pages/WhatsOn"
 import ArtistDirectory from "./pages/ArtistDirectory"
 import AboutUs from "./pages/AboutUs"
 import UpdateInfo from "./pages/UpdateInfo.js";
+import LogInForm from "./pages/LogInForm"
 
 
 
@@ -25,7 +26,8 @@ function App() {
       <Switch>
         <Route exact path={["/","/home"]} component={Home}>
         </Route>
-        <Route path="/WhatsOn" component={WhatsOn}>
+        <Route path="/WhatsOn" component={WhatsOn}></Route>
+        <Route path="/LogInForm" component={LogInForm}>
         </Route>
         <Route path="/ArtistDirectory" component={ArtistDirectory}>
         </Route>
