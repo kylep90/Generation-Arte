@@ -1,10 +1,19 @@
 import React from "react";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
 import { BrowserRouter } from "react-router-dom";
 import { Switch, Route, Link } from 'react-router-dom';
+
+// Components
+import GNavbar from "./components/GNavbar/index.jsx";
+import GFooter from "./components/GFooter/index.jsx";
+//Pages
+import Home from "./pages/Home"
+import WhatsOn from "./pages/WhatsOn"
+import ArtistDirectory from "./pages/ArtistDirectory"
+import AboutUs from "./pages/AboutUs"
+import UpdateInfo from "./pages/UpdateInfo.js";
+import LogInForm from "./pages/LogInForm"
+
+
 
 // The app will not render correctly until you setup a Route component.
 // Refer to the Basic Example documentation if you need to.
@@ -13,18 +22,22 @@ function App() {
   return (
     <BrowserRouter>
     <div>
-      <Nav />
+      <GNavbar />
       <Switch>
-        <Route exact path={[ '/','/books']}>
-          <Books />
+        <Route exact path={["/","/home"]} component={Home}>
         </Route>
-        <Route path="/books/:id">
-          <Detail />
+        <Route path="/WhatsOn" component={WhatsOn}></Route>
+        <Route path="/LogInForm" component={LogInForm}>
         </Route>
-        <Route>
-          <NoMatch />
+        <Route path="/ArtistDirectory" component={ArtistDirectory}>
         </Route>
-      </Switch>      
+        <Route path="/AboutUs" component={AboutUs}>
+        </Route>
+        <Route path="/UpdateInfo" component={UpdateInfo}>
+        </Route>
+        
+      </Switch> 
+      <GFooter />     
     </div>
     </BrowserRouter>
   );
