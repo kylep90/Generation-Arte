@@ -40,6 +40,26 @@ const userSchema = new Schema(
             trim: true,
             required: true,
             enum: [ 'admin', 'user' ],
+        },
+        facebooklUrl: {
+            type: String,
+            trim: true,
+            required: false
+        },
+        twitterUrl: {
+            type: String,
+            trim: true,
+            required: false
+        },
+        instagramUrl: {
+            type: String,
+            trim: true,
+            required: false
+        },
+        youtubeUrl:{
+            type: String,
+            trim: true,
+            required: false
         }
     },
     // Obtained from https://github.com/Automattic/mongoose/issues/7573#issuecomment-516440616

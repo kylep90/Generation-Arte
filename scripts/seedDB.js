@@ -110,7 +110,29 @@ function createArtworks( pIds ){
             return pIds;
         } );
 }
-function createComments( pIds ){
+function createEvents( pIds ){
+    let lEvents = lData.events.map( ( pValue ) => {
+        return{
+            ...pValue,
+            user: getRandomArrayValue( pIds.users )
+        };
+    } );
+
+    return db.Event
+        .deleteMany( {} )
+        .then( () => db.Event.collection.insertMany( lEvents ) )
+        .catch( err => {
+            console.error( err );
+            process.exit( 1 );
+        } )
+        .then( pData => {
+            console.log( pData.result.n + ' events inserted!' );
+            const lEventIds = Object.values( pData.insertedIds );
+            pIds.events = lEventIds;
+            return pIds;
+        } );
+}
+function createArtworkComments( pIds ){
     const
         lArtworkIdsToComment = getRandomFilteredArray( pIds.artworks ),
         lCommentUserIds = getRandomFilteredArray( pIds.users ),
@@ -137,7 +159,7 @@ function createComments( pIds ){
             return pIds;
         } );
 }
-function createLikes( pIds ){
+function createArtworkLikes( pIds ){
     const
         lArtworkIdsToLike = getRandomFilteredArray( pIds.artworks ),
         lLikeUserIds = getRandomFilteredArray( pIds.users ),
@@ -171,8 +193,9 @@ createUsers()
         process.exit( 1 );
     } )
     .then( createArtworks )
-    .then( createComments )
-    .then( createLikes )
+    .then( createEvents )
+    .then( createArtworkComments )
+    .then( createArtworkLikes )
     .then( function( pIds ){
         console.log( '\n-------------------\n' );
         console.log( pIds );
