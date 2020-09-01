@@ -24,7 +24,7 @@ passport.use( new LocalStrategy(
 passport.serializeUser( function( pUser, pCallback ) {
     pCallback( null, pUser );
 } );
-passport.deserializUser( function( pUser, pCallback ) {
+passport.deserializeUser( function( pUser, pCallback ) {
     pCallback( null, pUser );
 } );
 

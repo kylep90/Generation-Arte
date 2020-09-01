@@ -1,4 +1,5 @@
 const mongoose = require( 'mongoose' );
+const bcrypt = require ( 'bcryptjs' );
 const db = require( '../models' );
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/reactreadinglist';
@@ -38,7 +39,7 @@ const lData = {
             lastName: 'Test',
             alias: 'Test',
             email: 'test@test.com',
-            password: 'test',
+            password: bcrypt.hashSync ('testtest'),
             picture: 'http://test/test.jpg',
             type: 'user',
         }
@@ -73,7 +74,7 @@ function createUsers(){
     return db.User
         // Remove all records
         .deleteMany( {} )
-        .then( () => db.User.collection.insertMany( lData.users ) )
+        .then( () => db.User.insertMany( lData.users, { rawResult: true } ) )
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -97,7 +98,7 @@ function createArtworks( pIds ){
 
     return db.Artwork
         .deleteMany( {} )
-        .then( () => db.Artwork.collection.insertMany( lArtworks ) )
+        .then( () => db.Artwork.insertMany( lArtworks ), { rawResult: true } )
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -120,7 +121,7 @@ function createEvents( pIds ){
 
     return db.Event
         .deleteMany( {} )
-        .then( () => db.Event.collection.insertMany( lEvents ) )
+        .then( () => db.Event.insertMany( lEvents ) ), { rawResult: true }
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -146,7 +147,7 @@ function createArtworkComments( pIds ){
 
     return db.Comment
         .deleteMany( {} )
-        .then( () => db.Comment.collection.insertMany( lComments ) )
+        .then( () => db.Comment.insertMany( lComments ), { rawResult: true } )
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -172,8 +173,8 @@ function createArtworkLikes( pIds ){
 
     return db.Like
         .deleteMany( {} )
-        .then( () => db.Like.collection.insertMany( lLikes ) )
-        .catch( err => {
+        .then( () => db.Like.insertMany( lLikes ) )
+, { rawResult: true }        .catch( err => {
             console.error( err );
             process.exit( 1 );
         } )

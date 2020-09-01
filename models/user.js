@@ -1,6 +1,6 @@
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
-
+const bcrypt = require( 'bcryptjs' );
 const userSchema = new Schema(
     {
         firstName: {
@@ -97,6 +97,16 @@ userSchema.virtual( 'likesCount', {
     foreignField: 'user',
     count: true
 } );
+userSchema.pre( 'save', function( pNext ) {
+    if( this.isModified( 'password' ) ){
+        this.password = bcrypt.hashSync( this.password );
+    }
+    pNext();
+} );
+userSchema.methods.isPasswordValid = function( pPassword ){
+    return bcrypt.compareSync( pPassword, this.password );
+};
+
 
 const User = mongoose.model( 'User', userSchema );
 
