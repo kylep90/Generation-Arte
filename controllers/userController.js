@@ -48,7 +48,12 @@ module.exports = {
         if ( req.user ){
             if ( req.user._id === req.params.id || req.user.type === 'admin' ){
         db.User
-            .findOneAndUpdate( { _id: req.params.id }, lRequestBody )
+            .findOne( { _id: req.params.id } )
+                .then( dbModel => {
+                    dbModel.set( lRequestBody );
+                    console.log( dbModel );
+                    return dbModel.save ();
+                } )
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
             } else {
