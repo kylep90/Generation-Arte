@@ -10,8 +10,9 @@ import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"
 import ArtistDirectory from "./pages/ArtistDirectory"
 import AboutUs from "./pages/AboutUs"
-import UpdateInfo from "./pages/UpdateInfo.js";
+import UpdateInfo from "./pages/UpdateInfo";
 import LogInForm from "./pages/LogInForm"
+import ArtistPage from "./pages/ArtistPage"
 
 
 
@@ -34,6 +35,8 @@ function App() {
         <Route path="/AboutUs" component={AboutUs}>
         </Route>
         <Route path="/UpdateInfo" component={UpdateInfo}>
+        </Route>
+        <Route path="/ArtistPage" component={ArtistPage}>
         </Route>
         
       </Switch> 

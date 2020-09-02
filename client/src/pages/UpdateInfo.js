@@ -7,14 +7,14 @@ function UpdateInfo(){
         <div className="container">
           <div className="py-5 text-center row justify-content-center">
             <div className="col-md-10">
-              <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" src="https://artfair.co.nz/wp-content/uploads/2016/02/MY-ART-Logo.jpg" alt="Generic placeholder image"/>
+              <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" style={{maxHeight: "80px", maxWidth:"200px"}} src="https://artfair.co.nz/wp-content/uploads/2016/02/MY-ART-Logo.jpg" alt="Generic placeholder image"/>
               <h2>Update your profile</h2>
               <p className="lead">Complete this form to add/edit content to your profile</p>
             </div>
           </div>
           <div className="row justify-content-center">
            
-            <div className="col-md-6 order-md-1">
+            <div className="col-md-9 order-md-1">
               <h4 className="mb-3">Main Info</h4>
               <form className="needs-validation" novalidate="">
                 <div className="row">
@@ -74,7 +74,7 @@ function UpdateInfo(){
                 </div>
                 <div className="mb-3">
                 <div className="textarea-container mt-4">
-                  <textarea className="form-control" name="name" rows="4" cols="20" placeholder="Tell your fans a bit about you..." style="margin-top: 0px; margin-bottom: 0px; height: 80px;"></textarea>
+                  <textarea className="form-control" name="name" rows="4" cols="20" placeholder="Tell your fans a bit about you..." style={{marginTop: "0px", marginBottom: "0px", height: "80px"}}></textarea>
                 </div>
               </div>
               </form>
@@ -92,25 +92,25 @@ function UpdateInfo(){
 
                       <div className="mb-3">
                         <i className="fab fa-facebook fa-lg text-grey" aria-hidden="true"></i>
-                        <label for="address2">Facebook<span className="text-muted">(Optional)</span></label>
+                        <label for="address2">  Facebook<span className="text-muted">(Optional)</span></label>
                         <input type="text" className="form-control" id="address2" placeholder=""/>
                       </div>
 
                       <div className="mb-3">
                         <i className="fab fa-instagram fa-lg text-grey" aria-hidden="true"></i>
-                        <label for="address2">Instagram<span className="text-muted">(Optional)</span></label>
+                        <label for="address2">  Instagram<span className="text-muted">(Optional)</span></label>
                         <input type="text" className="form-control" id="address2" placeholder=""/>
                       </div>
 
                       <div className="mb-3">
                         <i className="fab fa-youtube fa-lg text-grey" aria-hidden="true"></i>
-                        <label for="address2">YouTube<span className="text-muted">(Optional)</span></label>
+                        <label for="address2">  YouTube<span className="text-muted">(Optional)</span></label>
                         <input type="text" className="form-control" id="address2" placeholder=""/>
                       </div>
 
                       <div className="mb-3">
                         <i className="fab fa-twitter fa-lg text-grey" aria-hidden="true"></i>
-                        <label for="address2">Twitter<span className="text-muted">(Optional)</span></label>
+                        <label for="address2">  Twitter<span className="text-muted">(Optional)</span></label>
                         <input type="text" className="form-control" id="address2" placeholder=""/>
                       </div>
 
@@ -129,12 +129,18 @@ function UpdateInfo(){
 
                           <label for="email">Description</label>
                           <input type="email" className="form-control" id="email" placeholder=""/>
-
-                          </form>
+                          <br></br>
+                          <br></br>
+                          <div style={{textAlign:"center"}}>
+                          <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
                           </div>
+                          </form>
+                          
+                          </div>
+                          
                     </div>
     
-
+                    
         </div>
       </section>
     )
