@@ -6,321 +6,581 @@
 	},
 	"item": [
 		{
-			"name": "GET Users",
-			"event": [
+			"name": "Auth",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "d80dcea4-d916-447a-88f7-c2d24dab4e6d",
-						"exec": [
-							"var jsonData = pm.response.json(),",
-							"    resource = jsonData[0];",
-							"pm.environment.set(\"userId\", resource._id);"
-						],
-						"type": "text/javascript"
-					}
+					"name": "POST Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"testtest\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/users/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"users",
-						""
-					]
-				}
-			},
-			"response": []
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "GET User",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/users/{{userId}}/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"users",
-						"{{userId}}",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET User Artworks",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/users/{{userId}}/artworks/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"users",
-						"{{userId}}",
-						"artworks",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET User Comments",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/users/{{userId}}/comments/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"users",
-						"{{userId}}",
-						"comments",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Artworks",
-			"event": [
+			"name": "Users",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "dfccf936-075c-43dd-8e34-d09316d12ced",
-						"exec": [
-							"var jsonData = pm.response.json(),",
-							"    resource = jsonData[0];",
-							"pm.environment.set(\"artworkId\", resource._id);"
-						],
-						"type": "text/javascript"
-					}
+					"name": "POST Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Test 2\",\n    \"lastName\": \"Test 2\",\n    \"alias\": \"Test 2\",\n    \"email\": \"test2@test.com\",\n    \"password\": \"test2test2\",\n    \"picture\": \"http://test/test2.jpg\",\n    \"type\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d80dcea4-d916-447a-88f7-c2d24dab4e6d",
+								"exec": [
+									"var jsonData = pm.response.json(),",
+									"    resource = jsonData[0];",
+									"pm.environment.set(\"userId\", resource._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{userId}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\": \"Test modified\",\n    \"password\": \"testtest\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{userId}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User Artworks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{userId}}/artworks/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								"artworks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/{{userId}}/comments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artworks/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artworks",
-						""
-					]
-				}
-			},
-			"response": []
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "GET Events",
-			"event": [
+			"name": "Artworks",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"id": "41ed11d6-7aca-4ad7-b522-13a259f98362",
-						"exec": [
-							"var jsonData = pm.response.json(),",
-							"    resource = jsonData[0];",
-							"pm.environment.set(\"eventId\", resource._id);"
-						],
-						"type": "text/javascript"
-					}
+					"name": "POST Create Artwork",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test 2\",\n    \"description\": \"Test 2\",\n    \"type\": \"other\",\n    \"picture\": \"http://test.com/test.jpg\",\n    \"video\": \"http://test.com/test.mp4\",\n    \"user\": \"{{userId}}\",\n    \"public\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfccf936-075c-43dd-8e34-d09316d12ced",
+								"exec": [
+									"var jsonData = pm.response.json(),",
+									"    resource = jsonData[0];",
+									"pm.environment.set(\"artworkId\", resource._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Artwork",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/{{artworkId}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								"{{artworkId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Artwork",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test 2\",\n    \"public\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/{{artworkId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								"{{artworkId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Artwork",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/{{artworkId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								"{{artworkId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Artwork Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/{{artworkId}}/comments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								"{{artworkId}}",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Artwork Likes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/artworks/{{artworkId}}/likes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"artworks",
+								"{{artworkId}}",
+								"likes",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/events/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"events",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Event",
 			"event": [
 				{
-					"listen": "test",
+					"listen": "prerequest",
 					"script": {
-						"id": "7e72a713-d03d-4416-adc0-76f090fbcac7",
+						"id": "3c964e60-5b61-402b-ab4e-cd2ff0c4e0ea",
+						"type": "text/javascript",
 						"exec": [
 							""
-						],
-						"type": "text/javascript"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c41d1aa-31a5-439a-aea9-1ae8bc659ba1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
 					}
 				}
 			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/events/{{eventId}}/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"events",
-						"{{eventId}}",
-						""
-					]
-				}
-			},
-			"response": []
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "GET Artwork",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artworks/{{artworkId}}/",
-					"protocol": "http",
-					"host": [
-						"localhost"
+			"name": "Events",
+			"item": [
+				{
+					"name": "GET Events",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41ed11d6-7aca-4ad7-b522-13a259f98362",
+								"exec": [
+									"var jsonData = pm.response.json(),",
+									"    resource = jsonData[0];",
+									"pm.environment.set(\"eventId\", resource._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artworks",
-						"{{artworkId}}",
-						""
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/events/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Event",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e72a713-d03d-4416-adc0-76f090fbcac7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/events/{{eventId}}/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"events",
+								"{{eventId}}",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "GET Artwork Comments",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artworks/{{artworkId}}/comments/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artworks",
-						"{{artworkId}}",
-						"comments",
-						""
-					]
+			"name": "Comments",
+			"item": [
+				{
+					"name": "GET Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/comments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "GET Artwork Likes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/artworks/{{artworkId}}/likes/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artworks",
-						"{{artworkId}}",
-						"likes",
-						""
-					]
+			"name": "Likes",
+			"item": [
+				{
+					"name": "GET Likes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/likes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"likes",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Comments",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/comments/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"comments",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Likes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/likes/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"likes",
-						""
-					]
-				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
