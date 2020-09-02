@@ -1,10 +1,15 @@
 import React from 'react'
 import './Home.css'
+import platos from '../assets/images/platos.jpg'
+import frida from '../assets/images/chilango-frida.jpg'
+import calaveras from '../assets/images/calaveras.jpg'
+import platos2 from '../assets/images/platos2.webp'
+
 import SignUpForm from '../components/SignUpForm/SignUpForm'
 
-function Home (){
+function Home (){  
     return(
-<section className="pt-4 pb-3 mt-0 d-flex bg-dark"  style={{backgroundImage: "url(https://writingisthinkingdotorg.files.wordpress.com/2017/07/chilango-frida.jpg)", minHeight: "100vh", backgroundSize: "cover"}}>
+<section className="pt-4 pb-3 mt-0 d-flex bg-dark"  style={{backgroundImage: "url(" + calaveras  + ")", minHeight: "100vh", backgroundSize: "cover"}}>
         <div className="container-fluid p-md-4">
           <div className="row    d-flex  h-100 ">
             <div className="position-relative  w-100 h-25  d-flex">

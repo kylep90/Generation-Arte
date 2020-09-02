@@ -1,9 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function ArtistCard (props){
 return (
-<div style={{textAlign: "auto"}}>
-<div class="card mb-3" style={{maxWidth: "80%"}}>
+  
+<div style={{textAlign: "centre", padding: "auto", margin:"auto"}}>
+<Link role="button" to="/ArtistPage">
+  <div class="card mb-3" style={{maxWidth: "80%", margin:"auto"}}>
   <div class="row no-gutters">
     <div class="col-md-4" style={{maxHeight : "100%"}}>
       <img src={props.pic} class="card-img" alt="..."/>
@@ -24,6 +27,7 @@ return (
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">Name: {props.name}</h5>
+        <p class="card-text">Type: {props.type}</p>
         <p class="card-text">Bio: {props.bio}</p>
         <div class="row row-cols-1 row-cols-md-3">
             
@@ -57,6 +61,8 @@ return (
   </div>
 </div>
 </div>
+</Link>
+
 </div>
 )
 }

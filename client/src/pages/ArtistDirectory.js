@@ -1,5 +1,6 @@
 import React from 'react'
 import ArtistCard from "../components/ArtistCard"
+import ArtistSearch from '../components/ArtistSearch'
 
 const artistData = [
     {
@@ -13,7 +14,9 @@ const artistData = [
 function ArtistDirectory(artistData){
     return (
 <>
+        <ArtistSearch />
         <ArtistCard name="Stevie Wonder" 
+                    type="singer"
                     pic="https://los40es00.epimg.net/los40/imagenes/2020/05/13/los40classic/1589357730_131396_1589362585_rrss_normal.jpg" 
                     bio="I am American singer, songwriter, musician and record producer. I play a diverse set of instruments like the drums, congas and the keyboard."
                     iframe="https://www.youtube.com/embed/E9Cl4xuFCJg"
@@ -23,6 +26,7 @@ function ArtistDirectory(artistData){
                     twitter="https://twitter.com/steviewonder?lang=en"
                     instagram=""/>
         <ArtistCard name="Saasil Sounds" 
+                    type="singer"
                     pic="https://xsradio.mx/wp-content/uploads/2020/04/Logo-Saasil-Sounds-1-scaled.jpg" 
                     bio="International roots/reggae collection with live performances around CDMX."
                     iframe="https://www.youtube.com/embed/OkLv8H0dd5Y"
