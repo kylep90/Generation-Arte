@@ -5,6 +5,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 // Components
 import GNavbar from "./components/GNavbar/index.jsx";
 import GFooter from "./components/GFooter/index.jsx";
+import SignUpForm from "./components/SignUpForm/SignUpForm.js";
 //Pages
 import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"

@@ -5,6 +5,7 @@ import frida from '../assets/images/chilango-frida.jpg'
 import calaveras from '../assets/images/calaveras.jpg'
 import platos2 from '../assets/images/platos2.webp'
 
+import SignUpForm from '../components/SignUpForm/SignUpForm'
 
 function Home (){  
     return(
@@ -35,15 +36,19 @@ function Home (){
                     <h1 className="  mb-0 pt-sm-4 text-white textShadow" >This is Generation Artes
                       <br/>A platform celebrating the local and international
                       <br/> talent in CDMX. </h1>
+                      <SignUpForm/>
                   </div>
                 </div>
               </div>
             </div>
             <div className="position-relative  w-100  h-25 d-flex">
+              
+              
+                  
 
                   </div>
 
-                
+    
               </div>
             </div>
       </section>
