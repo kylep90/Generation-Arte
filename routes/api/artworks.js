@@ -1,4 +1,5 @@
 const router = require( 'express' ).Router();
+const isAuthenticated = require( '../../config/middleware/isAuthenticated'); 
 const artworkController = require( '../../controllers/artworkController' );
 const commentController = require( '../../controllers/commentController' );
 const likeController = require( '../../controllers/likeController' );
@@ -8,13 +9,13 @@ const likeController = require( '../../controllers/likeController' );
 
 router.route( "/" )
     .get( artworkController.findAll )
-    .post( artworkController.create );  
+    .post( isAuthenticated(),artworkController.create );  
 
 router
     .route( "/:id" )
     .get( artworkController.findById )
-    .put( artworkController.update )
-    .delete( artworkController.remove );
+    .put( isAuthenticated(),artworkController.update )
+    .delete( isAuthenticated(),artworkController.remove );
 
 router.route( '/:id/comments' )
     .get( commentController.findByArtworkId );

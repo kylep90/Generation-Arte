@@ -1,6 +1,6 @@
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
-
+const bcrypt = require( 'bcryptjs' );
 const userSchema = new Schema(
     {
         firstName: {
@@ -40,6 +40,26 @@ const userSchema = new Schema(
             trim: true,
             required: true,
             enum: [ 'admin', 'user' ],
+        },
+        facebooklUrl: {
+            type: String,
+            trim: true,
+            required: false
+        },
+        twitterUrl: {
+            type: String,
+            trim: true,
+            required: false
+        },
+        instagramUrl: {
+            type: String,
+            trim: true,
+            required: false
+        },
+        youtubeUrl:{
+            type: String,
+            trim: true,
+            required: false
         }
     },
     // Obtained from https://github.com/Automattic/mongoose/issues/7573#issuecomment-516440616
@@ -77,6 +97,16 @@ userSchema.virtual( 'likesCount', {
     foreignField: 'user',
     count: true
 } );
+userSchema.pre( 'save', function( pNext ) {
+    if( this.isModified( 'password' ) ){
+        this.password = bcrypt.hashSync( this.password );
+    }
+    pNext();
+} );
+userSchema.methods.isPasswordValid = function( pPassword ){
+    return bcrypt.compareSync( pPassword, this.password );
+};
+
 
 const User = mongoose.model( 'User', userSchema );
 

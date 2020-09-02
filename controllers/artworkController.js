@@ -29,22 +29,59 @@ module.exports = {
                 .catch( err => res.status( 422 ).json( err ) );
     },
     create: function( req, res ) {
+        let lRequestBody = { ...req.body };
+        if ( req.user ){
+            if ( req.user.type !== 'admin' ){
+                lRequestBody.user = req.user._id;
+                lRequestBody.public = false;
+            }
+        
         db.Artwork
             .create( req.body )
             .then( dbModel => res.json( dbModel ) )
             .catch( err => res.status( 422 ).json( err ) );
+        } else {
+            return res.status( 401 ).json( {
+                error: 'Unauthorized'
+            } );
+        }
     },
     update: function( req, res ) {
+        let lRequestBody = { ...req.body };
+        if ( req.user ){
+            if ( req.user.type !== 'admin' ){
+                delete lRequestBody.user;
+                delete lRequestBody.public;
+            }
+            // TODO: Only allow the user that created the artwork to update it
         db.Artwork
             .findOneAndUpdate( { _id: req.params.id }, req.body )
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
+        } else {
+            return res.status( 401 ).json( {
+                error: 'Unauthorized'
+            } );
+        }
     },
     remove: function( req, res ) {
+        if ( req.user ){
         db.Artwork
             .findById( { _id: req.params.id } )
-            .then( dbModel => dbModel.remove() )
-                .then( dbModel => res.json( dbModel ) )
-                .catch( err => res.status( 422 ).json( err ) );
+            .then( ( dbModel ) => {
+                if ( req.user._id === dbModel.user || req.user.type === 'admin' ) {
+                    return res.json( dbModel.remove() );
+                } else {
+                    res.status( 403 ).json( {
+                        error: 'Forbidden'
+                    } );    
+                }
+            } )
+            .catch( err => res.status( 422 ).json( err ) );
+        } else {
+            return res.status( 401 ).json( {
+                error: 'Unauthorized' 
+            } );
+        }
     }
 };

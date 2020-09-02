@@ -1,6 +1,8 @@
 const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const morgan = require( 'morgan' );
+const session = require( 'express-session' );
+const passport = require( './config/passport');
 
 // SECTION Express Setup
 const app = express();
@@ -14,6 +16,10 @@ app.use( express.json() );
 // concise output colored by response status for development use.
 // See https://github.com/expressjs/morgan#dev
 app.use( morgan( 'dev' ) );
+app.use( session( {secret: 'keyboard cat'} ) );
+app.use( passport.initialize() );
+app.use( passport.session() );
+
 // !SECTION Express Setup
 
 // Serve up static assets (usually on heroku)
