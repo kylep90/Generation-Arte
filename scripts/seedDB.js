@@ -98,7 +98,7 @@ function createArtworks( pIds ){
 
     return db.Artwork
         .deleteMany( {} )
-        .then( () => db.Artwork.insertMany( lArtworks ), { rawResult: true } )
+        .then( () => db.Artwork.insertMany( lArtworks , { rawResult: true } ) )
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -121,7 +121,7 @@ function createEvents( pIds ){
 
     return db.Event
         .deleteMany( {} )
-        .then( () => db.Event.insertMany( lEvents ) ), { rawResult: true }
+        .then( () => db.Event.insertMany( lEvents , { rawResult: true } ) )
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -147,7 +147,7 @@ function createArtworkComments( pIds ){
 
     return db.Comment
         .deleteMany( {} )
-        .then( () => db.Comment.insertMany( lComments ), { rawResult: true } )
+        .then( () => db.Comment.insertMany( lComments , { rawResult: true } ) )
         .catch( err => {
             console.error( err );
             process.exit( 1 );
@@ -173,8 +173,8 @@ function createArtworkLikes( pIds ){
 
     return db.Like
         .deleteMany( {} )
-        .then( () => db.Like.insertMany( lLikes ) )
-, { rawResult: true }        .catch( err => {
+        .then( () => db.Like.insertMany( lLikes , { rawResult: true } ) )
+        .catch( err => {
             console.error( err );
             process.exit( 1 );
         } )
