@@ -3,7 +3,8 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 
-function Navbar () {
+
+function Navbar (props) {
 
     return(
         
@@ -53,7 +54,7 @@ function Navbar () {
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <a className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src="https://xsradio.mx/wp-content/uploads/2020/04/Logo-Saasil-Sounds-1-scaled.jpg" alt="Htmlstream" /> Saasil Sounds
+                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src="https://xsradio.mx/wp-content/uploads/2020/04/Logo-Saasil-Sounds-1-scaled.jpg" alt="Htmlstream" /> {props.name}
                   <i className="fa fa-angle-down   "/>
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">

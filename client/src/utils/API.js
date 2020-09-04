@@ -1,10 +1,12 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  // Gets all records from one collection
+  getAllFromCollection: function(collectionName) {
+    return axios.get(`/api/${collectionName}/`);
   },
+
+  //GET 
   // Gets the book with the given id
   getBook: function(id) {
     return axios.get("/api/books/" + id);

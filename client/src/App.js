@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Switch, Route } from 'react-router-dom';
+
+//Data
+import API from './utils/API'
 
 // Components
 import GNavbar from "./components/GNavbar/index.jsx";
@@ -23,11 +26,24 @@ import ArtistPage from "./pages/ArtistPage"
 // Refer to the Basic Example documentation if you need to.
 // (https://reacttraining.com/react-router/web/example/basic)
 function App() {
+
+  const [users, setUsers] = useState ([{firstName:""}])
+
+  //runs only once when component runs
+  useEffect( () => {
+    API.getAllFromCollection("users").then(data =>{
+      console.log(data)
+      setUsers(data.data)
+    }).then(()=> {console.log(users)})
+    
+  }, [])
+
   return (
     <BrowserRouter>
     <div>
-      <GNavbar />
+      <GNavbar name={users[0].firstName}/>
       <Switch>
+        
         <Route exact path={["/","/home"]} component={Home}>
         </Route>
         <Route path="/WhatsOn" component={WhatsOn}></Route>
