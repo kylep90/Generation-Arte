@@ -8,13 +8,13 @@ function GFooter (){
                 <div className="row">
                   <div className="col-md-6">
                     <div className=" pt-0 d-md-inline-block d-flex-row text-center text-md-left justyfy-content-md-start justyfy-content-center">
-                      <a href="#" role="button" className=" btn btn-link mr-2">
+                      <a href="/" role="button" className=" btn btn-link mr-2">
                         <i className="fab fa-twitter fa-lg text-white" aria-hidden="true"></i>
                       </a>
-                      <a href="#" role="button" className=" btn btn-link mr-2">
+                      <a href="/" role="button" className=" btn btn-link mr-2">
                         <i className="fab fa-facebook fa-lg text-white" aria-hidden="true"></i>
                       </a>
-                      <a href="#" role="button" className=" btn btn-link mr-2">
+                      <a href="/" role="button" className=" btn btn-link mr-2">
                         <i aria-hidden="true" className="fab fa-linkedin fa-lg text-white"></i>
                       </a>
                     </div>

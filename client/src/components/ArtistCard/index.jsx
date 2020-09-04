@@ -35,7 +35,7 @@ return (
   <div class="col mb-4">
     <div class="card h-100">
         <div>
-                <iframe class="embed-responsive-item" src={props.iframe} allowfullscreen=""></iframe>
+                <iframe title ="video" class="embed-responsive-item" src={props.iframe} allowfullscreen=""></iframe>
               </div>
       <div class="card-body">
         <h5 class="card-title">{props.title}</h5>
@@ -47,7 +47,7 @@ return (
   <div class="col mb-4">
     <div class="card h-100">
     <div>
-        <iframe title="" class="embed-responsive-item" src="https://www.youtube.com/embed/qqrvm2XDvpQ" allowfullscreen=""></iframe>
+        <iframe title="video" class="embed-responsive-item" src="https://www.youtube.com/embed/qqrvm2XDvpQ" allowfullscreen=""></iframe>
     </div>
 
       <div class="card-body">

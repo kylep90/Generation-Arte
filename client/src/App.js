@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 // Components
 import GNavbar from "./components/GNavbar/index.jsx";
 import GFooter from "./components/GFooter/index.jsx";
-import SignUpForm from "./components/SignUpForm/SignUpForm.js";
+
 //Pages
 import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"
@@ -14,6 +14,8 @@ import AboutUs from "./pages/AboutUs"
 import UpdateInfo from "./pages/UpdateInfo";
 import LogInForm from "./pages/LogInForm"
 import ArtistPage from "./pages/ArtistPage"
+
+
 
 
 

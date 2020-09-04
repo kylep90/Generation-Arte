@@ -2,16 +2,8 @@ import React from 'react'
 import ArtistCard from "../components/ArtistCard"
 import ArtistSearch from '../components/ArtistSearch'
 
-const artistData = [
-    {
-        name: "Stevie Wonder",
-        bio: "",
-        iframe: "",
-        title:"",
-        description:""
-    }
-]
-function ArtistDirectory(artistData){
+
+function ArtistDirectory(){
     return (
 <>
         <ArtistSearch />

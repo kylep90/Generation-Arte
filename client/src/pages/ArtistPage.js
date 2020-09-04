@@ -1,5 +1,6 @@
 import React from 'react'
 import './ArtistPage.css'
+import ArtistWork from '../components/ArtistWork'
 
 function ArtistPage(){
     return(
@@ -42,8 +43,8 @@ function ArtistPage(){
           </div>
         </div>
       </section>
-      <img className="rounded-circle shadow align-self-center img-fluid" style={{maxWidth:"150px"}} src="https://bootstrap-themes.github.io/marketing/assets/img/avatar-mdo.png" alt="pc"/>
-      <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true"/>
+      {/* <img className="rounded-circle shadow align-self-center img-fluid" style={{maxWidth:"150px"}} src="https://bootstrap-themes.github.io/marketing/assets/img/avatar-mdo.png" alt="pc"/>
+      <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true"/> */}
       <section className="">
         {/* <style>
           .album {
@@ -60,13 +61,16 @@ function ArtistPage(){
           }
         </style> */}
         <div className="album">
-            <img style={{height: "280px"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" />
-        <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" />
+            
+        
           <div className="container">
-          <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true"/>
+          
             <div className="row">
-            <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true"/>
-              <div className="card">
+           
+           <ArtistWork />
+           <ArtistWork />
+           <ArtistWork />
+              {/* <div className="card">
                 <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true"/>
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               </div>
@@ -75,8 +79,7 @@ function ArtistPage(){
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               </div>
               <div className="card">
-              <img className="rounded-circle shadow align-self-center img-fluid" style={{maxWidth:"150px"}} src="https://bootstrap-themes.github.io/marketing/assets/img/avatar-mdo.png" alt="pc"/>
-                <img className="mt-3 img-fluid" alt="100%x280" src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true" style={{height: "280px", width: "100%", display: "block"}}/>
+              <img className=" shadow align-self-center img-fluid" style={{maxWidth:"150px"}} src="https://bootstrap-themes.github.io/marketing/assets/img/avatar-mdo.png" alt="pc"/>
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               </div>
               <div className="card">
@@ -102,7 +105,7 @@ function ArtistPage(){
               <div className="card">
                 <img className="mt-3 img-fluid" alt="100%x280" src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true" style={{height: "280px", width: "100%", display: "block"}}/>
                 <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
