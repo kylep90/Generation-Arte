@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+
+//Data
+import API from './utils/API'
 
 // Components
 import GNavbar from "./components/GNavbar/index.jsx";
 import GFooter from "./components/GFooter/index.jsx";
-import SignUpForm from "./components/SignUpForm/SignUpForm.js";
+
 //Pages
 import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"
@@ -17,15 +20,30 @@ import ArtistPage from "./pages/ArtistPage"
 
 
 
+
+
 // The app will not render correctly until you setup a Route component.
 // Refer to the Basic Example documentation if you need to.
 // (https://reacttraining.com/react-router/web/example/basic)
 function App() {
+
+  const [users, setUsers] = useState ([{firstName:""}])
+
+  //runs only once when component runs
+  useEffect( () => {
+    API.getAllFromCollection("users").then(data =>{
+      console.log(data)
+      setUsers(data.data)
+    }).then(()=> {console.log(users)})
+    
+  }, [])
+
   return (
     <BrowserRouter>
     <div>
-      <GNavbar />
+      <GNavbar name={users[0].firstName}/>
       <Switch>
+        
         <Route exact path={["/","/home"]} component={Home}>
         </Route>
         <Route path="/WhatsOn" component={WhatsOn}></Route>

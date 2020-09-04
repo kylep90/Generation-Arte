@@ -1,6 +1,6 @@
 import React from 'react'
 import './WhatsOn.css'
-import {Card} from "react-bootstrap"
+
 
 function WhatsOn (){
 
@@ -123,27 +123,6 @@ function WhatsOn (){
       </section>
       
     )
-//     const cardInfo = [
-//         {image: "", title: "Visit to Soumaya Museum", text: ""},
-//         {image: "", title: "Visit to Museo de Antropología e Historia", text: ""},
-//         {image: "", title: "Visit to San Ángel Art Gallery", text: ""},
-//         {image: "", title: "Tour to Frida Kahlo's Casa Azul", text: ""},
-//     ];
-{/* //     
-//     return (
-//         <div className="DinamicCard"> 
-//         <Card style={{ width: '18rem' }} key={index}>
-//             <Card.Img variant="top" src="holder.js/100px180" src={Card.image}/>
-//             <Card.Body>
-//                 <Card.Title>{Card.title}</Card.Title>
-//                 <Card.Text>{Card.text}</Card.Text>
-//             </Card.Body>
-//         </Card>
-            
-//         </div>
-//     )
-// }
-// return <div className="DinamicCard">{cardInfo.map(renderCard)}</div>; */}
 };
 export default WhatsOn
 

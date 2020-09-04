@@ -35,21 +35,21 @@ function getRandomFilteredArray( pArray, pMinimumElements = 1, pUnique = true ){
 const lData = {
     users: [
         {
-            firstName: 'Test',
-            lastName: 'Test',
-            alias: 'Test',
-            email: 'test@test.com',
+            firstName: 'Diana',
+            lastName: 'Garcia',
+            alias: 'Profe God',
+            email: 'Diana@test.com',
             password: bcrypt.hashSync ('testtest'),
-            picture: 'http://test/test.jpg',
+            picture: 'https://api.adorable.io/avatars/285/admin.png',
             type: 'user',
         }
     ],
     artworks: [
         {
-            name: 'Test',
-            description: 'Test',
+            name: 'Building',
+            description: 'Holiday',
             type: 'paint',
-            picture: 'http://test/test.jpg',
+            picture: 'https://i.picsum.photos/id/290/300/200.jpg?hmac=6wTaiPU-UNW8ZmnxHgmvWbYgKDagHVBX4zGoQLKf3ZE',
             video: 'http://test/test.mp4',
             public: true,
         }
