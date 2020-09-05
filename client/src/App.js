@@ -28,7 +28,7 @@ import ArtistPage from "./pages/ArtistPage"
 function App() {
 
   const [users, setUsers] = useState ([{firstName:""}])
-
+  
   //runs only once when component runs
   useEffect( () => {
     API.getAllFromCollection("users").then(data =>{
