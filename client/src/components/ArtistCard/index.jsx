@@ -5,22 +5,22 @@ function ArtistCard (props){
 return (
   
 <div style={{textAlign: "centre", padding: "auto", margin:"auto"}}>
-<Link role="button" to="/ArtistPage">
+<Link role="button" style={{textDecoration:"none"}}className="artistCard"  to="/ArtistPage">
   <div class="card mb-3" style={{maxWidth: "80%", margin:"auto"}}>
   <div class="row no-gutters">
     <div class="col-md-4" style={{maxHeight : "100%"}}>
       <img src={props.pic} class="card-img" alt="..."/>
       <div class="card-body">
                     <div class=" pt-0 d-md-inline-block d-flex-row text-center text-md-left justyfy-content-md-start justyfy-content-center">
-                      <a href={props.twitter} role="button" class=" btn btn-link mr-2">
+                      <Link href={props.twitter} role="button" class=" btn btn-link mr-2">
                         <i class="fab fa-twitter fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Twitter
-                      </a><br></br>
-                      <a href={props.facebook} role="button" class=" btn btn-link mr-2">
+                      </Link><br></br>
+                      <Link href={props.facebook} role="button" class=" btn btn-link mr-2">
                         <i class="fab fa-facebook fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Facebook
-                      </a><br></br>
-                      <a href={props.instagram} role="button" class=" btn btn-link mr-2">
+                      </Link><br></br>
+                      <Link href={props.instagram} role="button" class=" btn btn-link mr-2">
                         <i aria-hidden="true" class="fab fa-instagram fa-lg text-grey"></i>  {props.name} Official Instagram
-                      </a>
+                      </Link>
                     </div>
       </div>
     </div>

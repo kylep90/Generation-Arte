@@ -10,58 +10,56 @@ function Navbar (props) {
         
 <nav className="navbar navbar-expand-lg navbar-dark border border-dark bg-dark">
         <div className="container">
-          <a className="navbar-brand" href="index.html">
+          <Link className="navbar-brand" href="index.html">
             <img src="https://artfair.co.nz/wp-content/uploads/2016/02/MY-ART-Logo.jpg" alt="UI Kit" style={{width: "100px"}}/>
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul className="navbar-nav ml-auto mr-sm-2 mt-2 mt-lg-0">
-              <li className="nav-item active mr-3">
-              <a style={{textDecoration : "none"}} className="nav-link" href="/"><Link className="nav-Link" to="/">Home<span className="sr-only">(current)</span></Link></a>
-
-                {/* <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a> */}
+              <li className="nav-item mr-3">
+                <Link className="nav-link" to="/Home">Home</Link>
               </li>
               <li className="nav-item mr-3">
-                <a className="nav-link" href="/"><Link  className="nav-Link" to="/ArtistDirectory">Artist Directory</Link></a>
+                <Link  className="nav-link" to="/ArtistDirectory">Artist Directory</Link>
               </li>
               <li className="nav-item mr-3">
-                <a className="nav-link" href="/"><Link className="nav-Link" to="/AboutUs">About Us</Link></a>
+                <Link className="nav-link" to="/AboutUs">About Us</Link>
               </li>
 
               {/* <li className="nav-item mr-3">
-                <a className="nav-link" href="/">Charities and Support</a>
+                <a className="nav-link" href="/">Charities and Support</Link>
               </li> */}
 
               {/* <li className="nav-item mr-3">
-                <a className="nav-link" href="/">Promos</a>
+                <a className="nav-link" href="/">Promos</Link>
               </li> */}
               <li className="nav-item mr-3">
 
-              <a href="/"className="nav-link"><Link className="nav-Link" to="/WhatsOn">What's On</Link></a>
+              <Link className="nav-link" to="/WhatsOn">What's On</Link>
           
               </li>
               <li className="nav-item mr-3">
-                <a className="nav-link" href="/">Contact Us</a>
+                <Link className="nav-link" href="/ContactUs">Contact Us</Link>
               </li>
               <li className="nav-item mr-3">
 
-                <a href="/" className="nav-link"><Link className="nav-Link" to="/LogInForm">Log In</Link></a>
+                <Link className="nav-link" to="/LogInForm">Log In</Link>
               </li>
 
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
-                <a className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src="https://xsradio.mx/wp-content/uploads/2020/04/Logo-Saasil-Sounds-1-scaled.jpg" alt="Htmlstream" /> {props.name}
+                <Link className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src={props.user.picture} alt="Htmlstream" /> {props.user.firstName}
                   <i className="fa fa-angle-down   "/>
-                </a>
+                </Link>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" href="/">Profile</a>
-                  <a className="dropdown-item" href="/"><Link  className="nav-Link" to="/UpdateInfo">Update Info</Link></a>
+                  <Link className="dropdown-item" href="/">Profile</Link>
+                  <Link  className="dropdown-item" to="/UpdateInfo">Update Info</Link>
                   <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="/">Sign Out</a>
+                  <Link className="dropdown-item" href="/">Sign Out</Link>
                 </div>
               </li>
             </ul>
