@@ -41,7 +41,7 @@ function App() {
   return (
     <BrowserRouter>
     <div>
-      <GNavbar name={users[0].firstName}/>
+      <GNavbar user={users[0]}/>
       <Switch>
         
         <Route exact path={["/","/home"]} component={Home}>
@@ -55,9 +55,11 @@ function App() {
         </Route>
         <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
-        <Route path="/ArtistPage" component={ArtistPage}>
+        <Route  path="/ArtistPage" render={()=> <ArtistPage user={users[0]}/>}>
         </Route>
-        
+
+  
+
       </Switch> 
       <GFooter />     
     </div>
