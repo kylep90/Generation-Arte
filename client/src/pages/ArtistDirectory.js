@@ -3,20 +3,47 @@ import ArtistCard from "../components/ArtistCard"
 import ArtistSearch from '../components/ArtistSearch'
 
 
-function ArtistDirectory(){
+function ArtistDirectory(props){
+
+    const users = props.users;  
+    const artworks = props.artworks;
+
+
+    const userCard = users.map((user) =>  
+    <ArtistCard name={user.firstName} 
+                last={user.lastName}
+                alias={user.alias}
+                industry={user.industry}
+                specific={user.specific}
+                pic={user.picture}
+                bio={user.bio}
+                facebook={user.facebookUrl} 
+                twitter={user.twitterUrl}
+                instagram={user.instagramUrl}
+                // artwork={artworks[1].video}
+                >
+                
+                </ArtistCard>
+        
+    );
+
     return (
 <>
         <ArtistSearch />
+        <div>{userCard}</div>
+        
         <ArtistCard name="Stevie Wonder" 
                     type="singer"
                     pic="https://los40es00.epimg.net/los40/imagenes/2020/05/13/los40classic/1589357730_131396_1589362585_rrss_normal.jpg" 
                     bio="I am American singer, songwriter, musician and record producer. I play a diverse set of instruments like the drums, congas and the keyboard."
+                    // artwork={artworks[1].video}
                     iframe="https://www.youtube.com/embed/E9Cl4xuFCJg"
                     title="With the Welsh Dragon"
                     description="Taking back to the Summer of 69"
                     facebook="https://www.facebook.com/StevieWonder"
                     twitter="https://twitter.com/steviewonder?lang=en"
                     instagram=""/>
+                    
         <ArtistCard name="Saasil Sounds" 
                     type="singer"
                     pic="https://xsradio.mx/wp-content/uploads/2020/04/Logo-Saasil-Sounds-1-scaled.jpg" 

@@ -3,11 +3,14 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 
-
+// src={props.users[0].picture} 
 function Navbar (props) {
 
-    return(
-        
+const picture = props.user?props.user.picture : ""
+const firstName = props.user?props.user.firstName : ""
+
+return(
+       
 <nav className="navbar navbar-expand-lg navbar-dark border border-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" href="index.html">
@@ -52,7 +55,7 @@ function Navbar (props) {
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <Link className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src={props.user.picture} alt="Htmlstream" /> {props.user.firstName}
+                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src={picture} alt="Htmlstream" /> {firstName}
                   <i className="fa fa-angle-down   "/>
                 </Link>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">

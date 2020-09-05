@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import ArtistWork from '../components/ArtistWork'
 
 function ArtistPage(props){
+  
     return(
         <>
         <section className="pt-5 pb-5">
@@ -13,9 +14,9 @@ function ArtistPage(props){
               <div className="col-md-4  shadow align-self-center card p-3 bg-light text-dark pt-4 pb-4">
                 <img className="rounded-circle shadow align-self-center img-fluid" style={{maxWidth:"150px"}} src="https://bootstrap-themes.github.io/marketing/assets/img/avatar-mdo.png" alt="pc"/>
                 <blockquote className="pull-quote text-center  ">
-                  <cite className="text-uppercase  ">{props.user.firstName}
+                  <cite className="text-uppercase  ">{props.users[1].firstName}
                     <br/>
-                    <small>{props.user.firstName} {props.user.lastName}</small>
+                    <small>{props.users[1].firstName} {props.users[1].lastName}</small>
                   </cite>
                   <p className="text-center m-3">
                     “They need to stop sleeping on me and get some understanding about this here game I spit!”

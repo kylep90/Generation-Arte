@@ -18,6 +18,11 @@ const userSchema = new Schema(
             trim: true,
             required: true
         },
+        bio: {
+            type: String,
+            trim: true,
+            required: true
+        },
         email: {
             type: String,
             trim: true,
@@ -41,7 +46,18 @@ const userSchema = new Schema(
             required: true,
             enum: [ 'admin', 'user' ],
         },
-        facebooklUrl: {
+        industry:{
+            type: String,
+            trim: true,
+            required: true,
+            enum: [ 'Visual Art', 'Dance', 'Music', 'Comedy', 'Tech', 'Drama' ],
+        },
+        specific:{
+            type: String,
+            trim: true,
+            required: true,
+        },
+        facebookUrl: {
             type: String,
             trim: true,
             required: false
