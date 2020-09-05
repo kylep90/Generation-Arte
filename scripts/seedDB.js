@@ -58,7 +58,10 @@ const lData = {
             password: bcrypt.hashSync( 'admin' ),
             // !! See https://api.adorable.io, this is just to have an actual image to show
             picture: 'https://api.adorable.io/avatars/285/admin.png',
-            type: 'admin'
+            type: 'admin',
+            "bio": "The lord of the scripts, king of queries, bugs punisher, master of databases, theeeeee uniqueeeeeeeee!!!! .....AAAADDDDMIIIIN!!! ",
+            "industry": 'Drama',
+            "specific": "Deity"
         },
         {
             firstName: 'User',
@@ -67,7 +70,10 @@ const lData = {
             email: 'user@generation-artes.com',
             password: bcrypt.hashSync( 'user' ),
             picture: 'https://api.adorable.io/avatars/285/user.png',
-            type: 'user'
+            type: 'user',
+            "bio": "generic mortal",
+            "industry": 'Drama',
+            "specific": "Human"
         },
         {
             "firstName": "Diana",
