@@ -4,6 +4,7 @@ module.exports = {
     findAll: function( req, res ) {
         db.Artwork
             .find(req.query)
+            .where( { public: true } )
             .populate( 'user' )
             .populate( 'commentsCount' )
             .populate( 'likesCount' )
@@ -17,7 +18,23 @@ module.exports = {
             .populate( 'user' )
             .populate( 'commentsCount' )
             .populate( 'likesCount' )
-                .then( dbModel => res.json( dbModel ))
+                .then( dbModel => {
+                    if(
+                        dbModel.public
+                        || (
+                            req.user
+                            && (
+                                req.user.type === 'admin'
+                                || req.user._id == dbModel.user
+                            )
+                        )
+                ) {
+                    return res.status ( 403 ).json( {
+                        error: 'Forbidden'
+                    } );
+                }
+                } ) 
+                // .then( dbModel => res.json( dbModel ))
                 .catch( err => res.status( 422 ).json( err ));
     },
     findByUserId: function( req, res ) {
@@ -25,6 +42,24 @@ module.exports = {
             .find( { user: req.params.id } )
                 .populate( 'commentsCount' )
                 .populate( 'likesCount' )
+                .then( dbModel => {
+                    return dbModel.filter( function( pValue ){
+                        let lKeepElement = false;
+                        if(
+                            pValue.public
+                            || (
+                                req.user
+                                && (
+                                    rep.user.type === 'admin'
+                                    || req.user._id == pValue.user
+                                )
+                            )
+                        ) {
+                            lKeepElement = true;
+                        }
+                        return lKeepElement;
+                    } );
+                })
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
     },
