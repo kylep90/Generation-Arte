@@ -15,7 +15,15 @@ function SignUpForm (){
                   <h4 className="card-title font-weight-bold   mb-4 mt-1">Sign up</h4>
                   <form>
                     <div className="form-group">
-                      <label>Your name</label>
+                      <label>First Name</label>
+                      <input name="" className="form-control" placeholder="Name" type="text"/>
+                    </div>
+                    <div className="form-group">
+                      <label>Last Name</label>
+                      <input name="" className="form-control" placeholder="Name" type="text"/>
+                    </div>
+                    <div className="form-group">
+                      <label>Alias</label>
                       <input name="" className="form-control" placeholder="Name" type="text"/>
                     </div>
                     <div className="form-group">
@@ -32,9 +40,7 @@ function SignUpForm (){
                     </div>
                     <div className="form-group">
                       <div className="checkbox">
-                        <label>
-                          <input type="checkbox" className="  mr-2"/>Subscribe to updates
-                          </label>
+                        
                       </div>
                     </div>
                     <div className="form-group">

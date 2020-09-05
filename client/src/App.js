@@ -27,9 +27,9 @@ import ArtistPage from "./pages/ArtistPage"
 // (https://reacttraining.com/react-router/web/example/basic)
 function App() {
 
+
   const [users, setUsers] = useState ([])
   const [artworks, setArtworks] = useState([])
-
   //runs only once when component runs
   useEffect( () => {
     API.getAllFromCollection("users").then(data =>{
