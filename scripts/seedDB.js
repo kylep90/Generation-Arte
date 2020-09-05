@@ -49,6 +49,8 @@ const lData = {
             "artworksCount": 1,
             "commentsCount": 1,
             "likesCount": 1,
+            email: 'Diana@test.com',
+            password: bcrypt.hashSync ('testtest'),
         },
         {
             "firstName": "Luis",
@@ -66,6 +68,8 @@ const lData = {
             "artworksCount": 0,
             "commentsCount": 0,
             "likesCount": 0,
+            email: 'LM@test.com',
+            password: bcrypt.hashSync ('testtest'),
         },
         {
             
@@ -84,6 +88,8 @@ const lData = {
             "artworksCount": 0,
             "commentsCount": 0,
             "likesCount": 0,
+            email: 'LMP@test.com',
+            password: bcrypt.hashSync ('testtest'),
         },
         {
             
@@ -101,8 +107,10 @@ const lData = {
             "artworksCount": 1,
             "commentsCount": 0,
             "likesCount": 0,
+            email: 'MJ@test.com',
+            password: bcrypt.hashSync ('testtest'),
         
-        },
+        }
         // {
         //     firstName: 'Diana',
         //     lastName: 'Garcia',
