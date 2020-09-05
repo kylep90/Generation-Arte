@@ -16,7 +16,8 @@ const userSchema = new Schema(
         alias: {
             type: String,
             trim: true,
-            required: true
+            required: true,
+            unique: true
         },
         bio: {
             type: String,
@@ -27,6 +28,7 @@ const userSchema = new Schema(
             type: String,
             trim: true,
             required: true,
+            unique: true,
             match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
         },
         password: {
