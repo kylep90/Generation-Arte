@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+
+//Data
+import API from './utils/API'
 
 // Components
 import GNavbar from "./components/GNavbar/index.jsx";
 import GFooter from "./components/GFooter/index.jsx";
-import SignUpForm from "./components/SignUpForm/SignUpForm.js";
+
 //Pages
 import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"
@@ -17,34 +20,61 @@ import ArtistPage from "./pages/ArtistPage"
 
 
 
+
+
 // The app will not render correctly until you setup a Route component.
 // Refer to the Basic Example documentation if you need to.
 // (https://reacttraining.com/react-router/web/example/basic)
 function App() {
+
+
+  const [users, setUsers] = useState ([])
+  const [artworks, setArtworks] = useState([])
+  //runs only once when component runs
+  useEffect( () => {
+    API.getAllFromCollection("users").then(data =>{
+      console.log(data)
+      console.log(data.data)
+      setUsers(data.data)
+    })
+
+    API.getAllFromCollection("artworks").then(data =>{
+      console.log(data)
+      setArtworks(data.data)
+    })
+
+    
+  }, [])
+
+
   return (
     <BrowserRouter>
     <div>
-      <GNavbar />
+      <GNavbar user={users[2]}/>
       <Switch>
+        
         <Route exact path={["/","/home"]} component={Home}>
         </Route>
         <Route path="/WhatsOn" component={WhatsOn}></Route>
         <Route path="/LogInForm" component={LogInForm}>
         </Route>
-        <Route path="/ArtistDirectory" component={ArtistDirectory}>
+        <Route path="/ArtistDirectory" render={()=> <ArtistDirectory users={users}/>}>
         </Route>
         <Route path="/AboutUs" component={AboutUs}>
         </Route>
         <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
-        <Route path="/ArtistPage" component={ArtistPage}>
+        <Route  path="/ArtistPage" render={()=> <ArtistPage users={users} artworks={artworks}/>}>
         </Route>
-        
+
+  
+
       </Switch> 
       <GFooter />     
     </div>
-    </BrowserRouter>
-  );
+    </BrowserRouter> 
+    );
+  
 }
 
 export default App;

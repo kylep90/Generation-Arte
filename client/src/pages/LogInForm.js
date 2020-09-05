@@ -13,7 +13,7 @@ function LogInForm (){
               <div className="row   justify-content-center header-h100 align-items-center">
                 <div className="col-12 col-md-4 text-center">
                   <form className="form-signin">
-                    <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" src="https://via.placeholder.com/80/5fa9f8/fff" alt="Generic placeholder image"/>
+                    <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" src="https://via.placeholder.com/80/5fa9f8/fff" alt="Generic"/>
                     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                     <label for="inputEmail" className="sr-only">Email address</label>
                     <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required="" autofocus="">

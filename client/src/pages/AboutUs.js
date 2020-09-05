@@ -1,4 +1,5 @@
 import React from 'react'
+import platos from "../assets/images/platos.jpg"
 
 function AboutUs (){
 return(
@@ -22,7 +23,7 @@ return(
             </div>
             <div class="col-12 col-md-7   mt-4 mt-md-0">
               <div class="embed-responsive embed-responsive-16by9 shadow-lg">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen=""></iframe>
+                <img class="embed-responsive-item" src={platos} />
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ function UpdateInfo(){
         <div className="container">
           <div className="py-5 text-center row justify-content-center">
             <div className="col-md-10">
-              <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" style={{maxHeight: "80px", maxWidth:"200px"}} src="https://artfair.co.nz/wp-content/uploads/2016/02/MY-ART-Logo.jpg" alt="Generic placeholder image"/>
+              <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" style={{maxHeight: "80px", maxWidth:"200px"}} src="https://artfair.co.nz/wp-content/uploads/2016/02/MY-ART-Logo.jpg" alt="generic"/>
               <h2>Update your profile</h2>
               <p className="lead">Complete this form to add/edit content to your profile</p>
             </div>
@@ -119,22 +119,7 @@ function UpdateInfo(){
 
                       {/* Adding Artwork */}
                       
-                        <h4 className="mb-3">Artwork</h4>
-                        <form className="needs-validation" novalidate="">
-                          <label for="email">Title</label>
-                          <input type="email" className="form-control" id="email" placeholder=""/>
 
-                          <label for="email">URL</label>
-                          <input type="email" className="form-control" id="email" placeholder=""/>
-
-                          <label for="email">Description</label>
-                          <input type="email" className="form-control" id="email" placeholder=""/>
-                          <br></br>
-                          <br></br>
-                          <div style={{textAlign:"center"}}>
-                          <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-                          </div>
-                          </form>
                           
                           </div>
                           

@@ -1,11 +1,11 @@
 import React from 'react'
 import './Home.css'
 import platos from '../assets/images/platos.jpg'
-import frida from '../assets/images/chilango-frida.jpg'
 import calaveras from '../assets/images/calaveras.jpg'
 import platos2 from '../assets/images/platos2.webp'
 
 import SignUpForm from '../components/SignUpForm/SignUpForm'
+
 
 function Home (){  
     return(
