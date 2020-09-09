@@ -8,16 +8,30 @@ mongoose.connect( MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 } );
-
+mongoose.connection.once( 'open', function(){
+    mongoose.connection.db.dropDatabase( function(err, result){
+        console.log( 'Database Dropped' );
+    } );
+ } );
 function getRandomNumber( pMaximum, pMinimum = 0 ){
-    return Math.floor( Math.random() * pMaximum ) + pMinimum;
+    return (
+        Math.floor(
+             Math.random()
+              *( 
+                  pMaximum - pMinimum + 1
+                )
+            )
+            + pMinimum
+    );        
 }
 function getRandomArrayValue( pArray ){
+    // console.log( pArray );
     return pArray[ getRandomNumber( pArray.length - 1 ) ];
 }
 function getRandomFilteredArray( pArray, pMinimumElements = 1, pUnique = true ){
     let lResult = [];
-    const lNumberOfElements = getRandomNumber(pArray.length, 1);
+    // console.log( pArray );
+    const lNumberOfElements = getRandomNumber( pArray.length, Math.min( pMinimumElements, pArray.length) ); 
 
     for ( let i = 0; i < lNumberOfElements; i++ ){
         let lNewValue = getRandomArrayValue( pArray );
@@ -34,6 +48,33 @@ function getRandomFilteredArray( pArray, pMinimumElements = 1, pUnique = true ){
 
 const lData = {
     users: [
+        
+        {
+
+            firstName: 'Admin',
+            lastName: 'Admin',
+            alias: 'admin',
+            email: 'admin@generation-artes.com',
+            password: bcrypt.hashSync( 'admin' ),
+            // !! See https://api.adorable.io, this is just to have an actual image to show
+            picture: 'https://api.adorable.io/avatars/285/admin.png',
+            type: 'admin',
+            "bio": "The lord of the scripts, king of queries, bugs punisher, master of databases, theeeeee uniqueeeeeeeee!!!! .....AAAADDDDMIIIIN!!! ",
+            "industry": 'Drama',
+            "specific": "Deity"
+        },
+        {
+            firstName: 'User',
+            lastName: 'User',
+            alias: 'user',
+            email: 'user@generation-artes.com',
+            password: bcrypt.hashSync( 'user' ),
+            picture: 'https://api.adorable.io/avatars/285/user.png',
+            type: 'user',
+            "bio": "generic mortal",
+            "industry": 'Drama',
+            "specific": "Human"
+        },
         {
             "firstName": "Diana",
             "lastName": "Garcia",
@@ -129,20 +170,54 @@ const lData = {
             picture: 'https://i.picsum.photos/id/290/300/200.jpg?hmac=6wTaiPU-UNW8ZmnxHgmvWbYgKDagHVBX4zGoQLKf3ZE',
             video: 'http://test/test.mp4',
             public: true,
+
+        },
+        {
+            name: 'Paint',
+            description: 'Paint',
+            type: 'paint',
+            // !! See https://picsum.photos/, this is so we have an actual image available
+            picture: 'https://picsum.photos/seed/paint/300/200',
+            // !! See https://developers.google.com/youtube/player_parameters on how to embed videos using iframe
+            // !! This video is only a placeholder
+            video: 'https://www.youtube.com/embed/NpEaa2P7qZI',
+            public: true
+        },
+        {
+            name: 'Music',
+            description: 'Music',
+            type: 'music',
+            picture: 'https://picsum.photos/seed/music/300/200',
+            video: 'https://www.youtube.com/embed/NpEaa2P7qZI',
+            // !! We should have varied for testing
+            public: false
+
         }
     ],
     events: [
         {
-            name: 'Test',
-            description: 'Test',
+            name: 'Music Event',
+            description: 'Music Event',
             type: 'music',
             datetime: new Date(),
-            location: 'Test',
+            location: 'Unknown',
             cost: 0,
             currency: 'MXN',
-            picture: 'http://test/test.jpg',
-            video: 'http://test/test.mp4',
+            picture: 'https://picsum.photos/seed/music-event/300/200',
+            video: 'https://www.youtube.com/embed/NpEaa2P7qZI',
             public: true,
+        },
+        {
+            name: 'Dance Event',
+            description: 'Dance Event',
+            type: 'dance',
+            datetime: new Date(),
+            location: 'Unknown',
+            cost: 0,
+            currency: 'MXN',
+            picture: 'https://picsum.photos/seed/dance-event/300/200',
+            video: 'https://www.youtube.com/embed/NpEaa2P7qZI',
+            public: false,
         }
     ],
 };
@@ -263,6 +338,55 @@ function createArtworkLikes( pIds ){
             return pIds;
         } );
 }
+function createEventComments( pIds ){
+    const
+        lEventIdsToComment = getRandomFilteredArray( pIds.events ),
+        lCommentUserIds = getRandomFilteredArray( pIds.users ),
+        lComments = lEventIdsToComment.map( ( pValue ) => {
+            return {
+                user: getRandomArrayValue( lCommentUserIds ),
+                event: pValue,
+                content: 'Test Event Comment'
+            };
+        } );
+    return db.Comment
+        .deleteMany( {} )
+        .then( () => db.Comment.insertMany( lComments , { rawResult: true } ) )
+        .catch( err => {
+            console.error( err );
+            process.exit( 1 );
+        } )
+        .then( pData => {
+            console.log( pData.result.n + 'comments inserted!' );
+            const lCommentsIds = Object.values( pData.insertedIds );
+            pIds.comments = [ ...pIds.comments, ...lCommentsIds ];
+            return pIds;
+        });    
+    }
+    function createEventLikes( pIds ){
+        const 
+            lEventsIdsToLike  = getRandomFilteredArray( pIds.events ),
+            lLikeUserIds = getRandomFilteredArray( pIds.users ),
+            lLikes = lEventsIdsToLike.map( ( pValue ) => {
+                return {
+                    user: getRandomArrayValue( lLikeUserIds ),
+                    event: pValue,
+                };
+            } );
+        return db.Like
+            .deleteMany( {} )
+            .then( () => db.Like.insertMany( lLikes , { rawResult: true } ) )
+            .catch( err => {
+                console.error( err );
+                process.exit( 1 );
+            } )
+            .then( pData => {
+                console.log( pData.result.n + ' likes inserted!' );
+                const lLikesIds = Object.values( pData.insertedIds );
+                pIds.likes = [ ...pIds.likes, ... lLikesIds ];
+                return pIds;
+            } ); 
+    }
 
 console.log( '-------------------\n' );
 createUsers()
@@ -274,6 +398,8 @@ createUsers()
     .then( createEvents )
     .then( createArtworkComments )
     .then( createArtworkLikes )
+    .then( createEventComments )
+    .then( createEventLikes )
     .then( function( pIds ){
         console.log( '\n-------------------\n' );
         console.log( pIds );

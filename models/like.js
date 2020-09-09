@@ -15,7 +15,7 @@ const likeSchema = new Schema( {
         ref: 'Event'
     }
 } );
-
+likeSchema.index( { users: 1, artwork: 1, event: 1 }, { unique: true } );
 const Like = mongoose.model( 'Like', likeSchema );
 
 module.exports = Like;

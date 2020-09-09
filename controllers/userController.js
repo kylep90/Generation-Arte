@@ -28,11 +28,14 @@ module.exports = {
     },
     create: function( req, res ) {
         let lRequestBody = { ...req.body };
-        if ( lRequestBody.type !== 'user') {
-            if ( !req.user || !req.user.type === 'admin'){
-                lRequestBody.type = 'user';
-            }
-        }
+        if (
+            ( !req.user && lRequestBody.type !== 'user' )
+            || (req.user && req.user.type !== 'admin')
+        ){
+            return res.status( 403 ).json( {
+                error: 'Forbidden'
+            } ); 
+        }    
         db.User
             .create( lRequestBody )
                 .then( dbModel => res.json( dbModel ) )
@@ -40,10 +43,13 @@ module.exports = {
     },
     update: function( req, res ) {
         let lRequestBody = { ...req.body };
-        if ( lRequestBody. type !== 'user' ) {
-            if ( !req.user || !req.user.type === 'admin' ){
-                lRequestBody.TYPE = 'user';
-            }
+        if (
+            !req.user
+            || ( req.user && req.user.type !== 'admin')
+        ){
+            return res.status( 403 ).json( {
+                error: 'Forbidden'
+            } );
         }
         if ( req.user ){
             if ( req.user._id === req.params.id || req.user.type === 'admin' ){

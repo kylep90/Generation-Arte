@@ -25,5 +25,28 @@ export default {
   // Saves a book to the database
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
-  }
+  },
+  getCurrentUser: function(){
+    return axios.get(
+      '/api/auth/me',
+      {
+        validateStatus: ( status ) => {
+          return ( status >= 200 && status < 300 )
+            || status === 401
+        }
+      }
+    );
+  },
+  login: function( pEmail, pPassword ){
+    return axios.post(
+      '/api/auth/login',
+      {
+        email: pEmail,
+        password: pPassword   
+      }
+    );
+  },
+  logout: function(){
+    return axios.get( '/api/auth/logout' )
+  }  
 };
