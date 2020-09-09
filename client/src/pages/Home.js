@@ -41,12 +41,7 @@ function Home (){
                 </div>
               </div>
             </div>
-            <div className="position-relative  w-100  h-25 d-flex">
-              
-              
-                  
-
-                  </div>
+           
 
     
               </div>
