@@ -32,21 +32,28 @@ class SignUpForm extends Component {
       lastName: null,
       alias: null,
       bio: null,
+      type: null,
       email: null,
       password: null,
+      picture: null,
       formErrors: {
+        type: "",
         firstName: "",
         lastName: "",
         email: "",
         password: "",
         alias: '',
         bio:'',
+        picture: "",
       }
     };
   }
+  
+
 
   handleSubmit = e => {
     e.preventDefault();
+console.log(this.state)
 
     if (formValid(this.state)) {
     //  console.log(`
@@ -59,6 +66,8 @@ class SignUpForm extends Component {
 
       //TH?iS FORM IS VALID
       axios.post('/api/users', {...this.state})
+
+
       .then(function (response) {
         console.log(response);
       })
@@ -87,6 +96,14 @@ class SignUpForm extends Component {
         formErrors.lastName =
           value.length < 3 ? "minimum 3 characaters required" : "";
           break;
+          case "picture":
+        formErrors.picture =
+          value.length < 3 ? "minimum 3 characaters required" : "";
+          break;
+          case "type":
+            formErrors.type =
+              value.length < 4 ? "admin/user" : "";
+              break;
       case "alias":
         formErrors.alias =
           value.length < 3 ? "minimum 3 characaters required" : "";
@@ -100,6 +117,7 @@ class SignUpForm extends Component {
           ? ""
           : "invalid email address";
         break;
+        
       case "password":
         formErrors.password =
           value.length < 6 ? "minimum 6 characaters required" : "";
@@ -192,6 +210,37 @@ class SignUpForm extends Component {
                 <span className="errorMessage">{formErrors.email}</span>
               )}
             </div>
+
+            <div className="picture">
+              <label htmlFor="picture">Your Picture</label>
+              <input
+                className={formErrors.picture.length > 0 ? "error" : null}
+                placeholder="picture"
+                type="picture"
+                name="picture"
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.picture.length > 2 && (
+                <span className="errorMessage">{formErrors.picture}</span>
+              )}
+            </div>
+
+            <div className="type">
+              <label htmlFor="type">Type of User (Admin or User)</label>
+              <input
+                className={formErrors.type.length > 0 ? "error" : null}
+                placeholder="type"
+                type="type"
+                name="type"
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.type.length > 0 && (
+                <span className="errorMessage">{formErrors.type}</span>
+              )}
+            </div>
+
             <div className="password">
               <label htmlFor="password">Password</label>
               <input
@@ -206,6 +255,9 @@ class SignUpForm extends Component {
                 <span className="errorMessage">{formErrors.password}</span>
               )}
             </div>
+
+            
+
             <div className="createAccount">
               <button type="submit">Create Account</button>
               <small>Already Have an Account?</small>
