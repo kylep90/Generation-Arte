@@ -1,7 +1,48 @@
-import React, {useEffect, useState} from 'react'
-import API from "../utils/API"
 
+import React from 'react'
+import { Redirect, useHistory } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react';
+import { AuthenticationContext } from '../App.js'
+import API from '../utils/API.js';
+ 
 function UpdateInfo(){
+  const history = useHistory(); 
+  const { authenticationState, authenticationDispatch } = useContext( AuthenticationContext );
+  const [ initialized, setInitialized ] = useState( false );
+  const [ id, setId ] = useState( '' );
+  const state = {};
+  const setters = {};
+    [ state.firstName, setters.firstName ] = useState( '' );
+    [ state.lastName, setters.lastName ]  = useState( '' );
+    [ state.email, setters.email ] = useState( '' );
+    [ state.alias, setters.alias ] = useState( '' );
+    [ state.field, setters.field ] = useState( '' );
+    [ state.profilePicture, setters.profilePicture ] = useState( '' );
+    [ state.bio, setters.bio ] = useState( '' );
+    [ state.facebookUrl, setters.facebookUrl ] = useState( '' );
+    [ state.instagramUrl, setters.instagramUrl ] = useState( '' );
+    [ state.youtubeUrl, setters.youtubeUrl ] = useState( '' );
+    [ state.twitterUrl, setters.twitterUrl ] = useState( '' );
+    function handleInputChange( pEvent ){
+        const fieldName = pEvent.target.name;
+        const fieldValue = pEvent.target.value;
+        setters [ fieldName ]( fieldValue );
+    }
+    if ( !authenticationState.isAuthenticated ){
+      return < Redirect to = "/" />
+    } else {
+      useEffect( () => {
+        if ( !initialized ){
+          // setId( !initialized ){ esto no estaba en el cdg
+            setId( authenticationState.user._id );
+            Object.keys( state ).forEach( function( pKey ){
+              if ( pKey in authenticationState.user ){
+                setters[ pKey ]( authenticationState.user[ pKey ] );
+              } 
+            });
+            setInitialized( true );
+          }
+        } );
 
   // const [userLoggedIn, setUserLoggedIn] = useState()
 
@@ -30,7 +71,7 @@ function UpdateInfo(){
                 <div className="row">
                   <div className="col-md-6 mb-3">
                     <label for="firstName">First name</label>
-                    <input type="text" className="form-control" id="firstName" placeholder="" value="" required=""/>
+                    <input type="text" className="form-control" id="firstName" placeholder="" required="" name="firstName" value={ state.firstName } onChange={ handleInputChange }/>
                     {/* <div className="invalid-feedback">
                       Valid first name is required.
                     </div> */}
@@ -61,7 +102,6 @@ function UpdateInfo(){
                     </div>  */}
                   </div>
                 </div>
-
                 <div className="col-md-5 mb-3">
                   <label for="country">Field</label>
                   <select className="custom-select d-block w-100" id="country" required="">
@@ -139,6 +179,7 @@ function UpdateInfo(){
         </div>
       </section>
     )
+  }
 
 }
 
