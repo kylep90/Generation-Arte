@@ -1,15 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ArtistCard from "../components/ArtistCard"
 import ArtistSearch from '../components/ArtistSearch'
 
 
 function ArtistDirectory(props){
 
+    const [searchValue, setSearchValue] = useState("")
+
+
     const users = props.users;  
     const artworks = props.artworks;
+    // const searchTerm = ".toLowerCase().includes(searchValue)"
 
+    console.log(searchValue)
 
-    const userCard = users.map((user) =>  
+        
+    
+
+    return (
+<>
+        <ArtistSearch setSearchValue={setSearchValue}/>    
+        
+        {(searchValue ? users.filter((user)=>user.firstName.toLowerCase().includes(searchValue)||user.lastName.toLowerCase().includes(searchValue)||user.alias.toLowerCase().includes(searchValue)||user.industry.toLowerCase().includes(searchValue)||user.specific.toLowerCase().includes(searchValue)||user.bio.toLowerCase().includes(searchValue)) : users).map(user => (
+   
+        // const userCard = users.map((user) =>  
     <ArtistCard name={user.firstName} 
                 last={user.lastName}
                 alias={user.alias}
@@ -20,19 +34,25 @@ function ArtistDirectory(props){
                 facebook={user.facebookUrl} 
                 twitter={user.twitterUrl}
                 instagram={user.instagramUrl}
+                youtube={user.youtubeUrl}
                 // artwork={artworks[1].video}
                 >
                 
-                </ArtistCard>
+                </ArtistCard> ))}
         
-    );
+         
+        </>
 
-    return (
-<>
-        <ArtistSearch />
-        <div>{userCard}</div>
+
+
+       )
+}
+
+export default ArtistDirectory
+
+/* <div>{userCard}</div> */
         
-        <ArtistCard name="Stevie Wonder" 
+        /* <ArtistCard name="Stevie Wonder" 
                     type="singer"
                     pic="https://los40es00.epimg.net/los40/imagenes/2020/05/13/los40classic/1589357730_131396_1589362585_rrss_normal.jpg" 
                     bio="I am American singer, songwriter, musician and record producer. I play a diverse set of instruments like the drums, congas and the keyboard."
@@ -53,13 +73,4 @@ function ArtistDirectory(props){
                     description="Live on Ellie's roof"
                     facebook="https://www.facebook.com/sassil.sounds/"
                     twitter=""
-                    instagram="https://www.instagram.com/saasil.sounds/"/>
-        
-        </>
-
-
-
-       )
-}
-
-export default ArtistDirectory
+                    instagram="https://www.instagram.com/saasil.sounds/"/>*/

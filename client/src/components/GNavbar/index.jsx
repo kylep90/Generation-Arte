@@ -1,14 +1,16 @@
 import React from 'react'
 // import './navbar.css'
 import {Link} from 'react-router-dom';
-
+import { AuthenticationContext } from '../../App.js'
+import API from '../../utils/API';
+import { useHistory } from "react-router-dom";
 
 // src={props.users[0].picture} 
 function Navbar (props) {
-
-const picture = props.user?props.user.picture : ""
-const firstName = props.user?props.user.firstName : ""
-
+  const { authenticationState, authenticationDispatch } = React.useContext( AuthenticationContext );
+  const picture = props.user?props.user.picture : ""
+  const firstName = props.user?props.user.firstName : ""
+  const history = useHistory();
 return(
        
 <nav className="navbar navbar-expand-lg navbar-dark border border-dark bg-dark">
@@ -46,26 +48,43 @@ return(
               <li className="nav-item mr-3">
                 <Link className="nav-link" href="/ContactUs">Contact Us</Link>
               </li>
-              <li className="nav-item mr-3">
-
-                <Link className="nav-link" to="/LogInForm">Log In</Link>
-              </li>
-
-            </ul>
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <Link className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src={picture} alt="Htmlstream" /> {firstName}
-                  <i className="fa fa-angle-down   "/>
-                </Link>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link className="dropdown-item" href="/">Profile</Link>
-                  <Link  className="dropdown-item" to="/UpdateInfo">Update Info</Link>
-                  <div className="dropdown-divider"></div>
-                  <Link className="dropdown-item" href="/">Sign Out</Link>
-                </div>
-              </li>
-            </ul>
+              { (() => {
+                if ( !authenticationState.isAuthenticated ){
+                  return ( 
+                    <li className="nav-item mr-3">
+                      <Link className="nav-link" to="/LogInForm">Log In</Link>
+                    </li>
+                  );
+                }
+               })() }
+            </ul>   
+              { (() => {
+                if ( authenticationState.isAuthenticated && authenticationState.user ){
+                  return(
+                    <ul className="navbar-nav">
+                      <li className="nav-item dropdown">
+                        <Link className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img className="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src={authenticationState.user.picture} alt="Htmlstream" /> {authenticationState.user.firstName}
+                          <i className="fa fa-angle-down   "/>
+                        </Link>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <Link className="dropdown-item" href="/">Profile</Link>
+                          <Link  className="dropdown-item" to="/UpdateInfo">Update Info</Link>
+                          <div className="dropdown-divider"></div>
+                          <Link className="dropdown-item" onClick={ () => {
+                            API.logout().then( () => {
+                              authenticationDispatch( {
+                                type: 'logout'
+                              } );
+                              history.push( '/' );
+                            } );
+                          } }>Sign Out</Link>
+                        </div>
+                      </li>
+                    </ul>
+                  );
+                }
+            })() }
           </div>
         </div>
       </nav>
