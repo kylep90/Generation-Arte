@@ -15,11 +15,11 @@ module.exports = {
     findById: function( req, res ) {
         let lSelectField = [ '-password', '-email'];
         if ( req.user && req.user._id === req.params.id ){
-            lSelectFields = [ '-password' ];
+            lSelectField = [ '-password' ];
         }
         db.User
             .findById( req.params.id )
-            .select( lSelectFields )
+            .select( lSelectField )
             .populate( 'likesCount' )
             .populate( 'commentsCount' )
             .populate( 'artworksCount' )

@@ -40,7 +40,7 @@ return (
     <div class="col-md-8">
       
       <div class="card-body">
-        <Link role="button" style={{textDecoration:"none"}}className="artistCard"  to="/ArtistPage">
+        <Link role="button" style={{textDecoration:"none"}} className="artistCard"  to={{pathname:"/ArtistPage", state:{id:props.id}}}>
         <h5 class="card-title">Name: {props.name} {props.last}</h5>
         <p className="card-text">Alias: {props.alias}</p>
         <p class="card-text">Industry: {props.industry}</p>

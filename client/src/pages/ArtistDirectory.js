@@ -35,6 +35,7 @@ function ArtistDirectory(props){
                 twitter={user.twitterUrl}
                 instagram={user.instagramUrl}
                 youtube={user.youtubeUrl}
+                id={user._id}
                 // artwork={artworks[1].video}
                 >
                 

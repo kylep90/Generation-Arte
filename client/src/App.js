@@ -43,6 +43,9 @@ function App() {
       setArtworks(data.data)
     })
 
+
+  
+
     
   }, [])
 
@@ -64,7 +67,7 @@ function App() {
         </Route>
         <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
-        <Route  path="/ArtistPage" render={()=> <ArtistPage users={users} artworks={artworks}/>}>
+        <Route  path="/ArtistPage" component={ArtistPage}>
         </Route>
 
   
