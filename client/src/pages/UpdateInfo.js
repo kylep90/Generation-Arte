@@ -1,6 +1,16 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import API from "../utils/API"
 
 function UpdateInfo(){
+
+  // const [userLoggedIn, setUserLoggedIn] = useState()
+
+  // useEffect(() => {
+  //   API.getUser(userId).then(data => {
+  //     console.log(data.data)
+  //     setUserLoggedIn(data.data)
+  //   })
+  // }, [])
 
     return(
         <section className="pt-5 pb-5">

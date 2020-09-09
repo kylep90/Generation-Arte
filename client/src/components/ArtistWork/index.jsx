@@ -1,10 +1,18 @@
 import React from 'react'
 
-function ArtistWork (){
+function ArtistWork (props){
+  console.log(props.video)
     return (
 <div className="card">
-<img className=" shadow align-self-center img-fluid" style={{maxWidth:"100%"}} src="https://bootstrap-themes.github.io/marketing/assets/img/avatar-mdo.png" alt="pc"/>
-  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+  {props.picture ? 
+<img className=" shadow align-self-center img-fluid" style={{maxWidth:"100%"}} src={props.picture} alt="pc"/> : <br></br>}
+
+{props.video ? 
+  <iframe width="727" height="409" src={props.video} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : <br></br>}
+  <p className="card-text">{props.name}</p>
+  <p className="card-text">{props.des}</p>
+
 </div>
     )
 }
