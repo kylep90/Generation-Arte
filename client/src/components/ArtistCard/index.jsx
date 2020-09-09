@@ -11,23 +11,36 @@ return (
     <div class="col-md-4" style={{maxHeight : "100%"}}>
       <img src={props.pic} class="card-img" alt="..."/>
       <div class="card-body">
+        <div>
+                      {props.facebook ? 
+                    <div class=" pt-0 d-md-inline-block d-flex-row text-center text-md-left justyfy-content-md-start justyfy-content-center">
+                      <a href={props.facebook} role="button" class=" btn btn-link mr-2">
+                        <i class="fab fa-facebook fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Facebook
+                      </a><br></br> </div> : <br></br> }
+                      {props.instagram ? 
+                    <div class=" pt-0 d-md-inline-block d-flex-row text-center text-md-left justyfy-content-md-start justyfy-content-center">
+                      <a href={props.instagram} role="button" class=" btn btn-link mr-2">
+                        <i class="fab fa-instagram fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Instagram
+                      </a><br></br> </div> : <br></br> }
+                      {props.youtube ? 
+                    <div class=" pt-0 d-md-inline-block d-flex-row text-center text-md-left justyfy-content-md-start justyfy-content-center">
+                      <a href={props.youtube} role="button" class=" btn btn-link mr-2">
+                        <i class="fab fa-youtube fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Youtube
+                      </a><br></br> </div> : <br></br> }
+                      {props.twitter ? 
                     <div class=" pt-0 d-md-inline-block d-flex-row text-center text-md-left justyfy-content-md-start justyfy-content-center">
                       <a href={props.twitter} role="button" class=" btn btn-link mr-2">
                         <i class="fab fa-twitter fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Twitter
-                      </a><br></br>
-                      <a href={props.facebook} role="button" class=" btn btn-link mr-2">
-                        <i class="fab fa-facebook fa-lg text-grey" aria-hidden="true"></i>  {props.name} Official Facebook
-                      </a><br></br>
-                      <a href={props.instagram} role="button" class=" btn btn-link mr-2">
-                        <i aria-hidden="true" class="fab fa-instagram fa-lg text-grey"></i>  {props.name} Official Instagram
-                      </a>
+                      </a><br></br> </div> : <br></br> }
+
+                     
                     </div>
       </div>
     </div>
     <div class="col-md-8">
       
       <div class="card-body">
-        <Link role="button" style={{textDecoration:"none"}}className="artistCard"  to="/ArtistPage">
+        <Link role="button" style={{textDecoration:"none"}} className="artistCard"  to={{pathname:"/ArtistPage", state:{id:props.id}}}>
         <h5 class="card-title">Name: {props.name} {props.last}</h5>
         <p className="card-text">Alias: {props.alias}</p>
         <p class="card-text">Industry: {props.industry}</p>

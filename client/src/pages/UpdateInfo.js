@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Redirect, useHistory } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
@@ -42,6 +43,15 @@ function UpdateInfo(){
             setInitialized( true );
           }
         } );
+
+  // const [userLoggedIn, setUserLoggedIn] = useState()
+
+  // useEffect(() => {
+  //   API.getUser(userId).then(data => {
+  //     console.log(data.data)
+  //     setUserLoggedIn(data.data)
+  //   })
+  // }, [])
 
     return(
         <section className="pt-5 pb-5">
