@@ -23,11 +23,9 @@ function UpdateInfo(){
     [ state.youtubeUrl, setters.youtubeUrl ] = useState( '' );
     [ state.twitterUrl, setters.twitterUrl ] = useState( '' );
     function handleInputChange( pEvent ){
-      const fieldName = ( pEvent ){
         const fieldName = pEvent.target.name;
         const fieldValue = pEvent.target.value;
         setters [ fieldName ]( fieldValue );
-      }
     }
     if ( !authenticationState.isAuthenticated ){
       return < Redirect to = "/" />
