@@ -2,11 +2,11 @@ import React from 'react'
 import './LogInForm.css'
 import { useState } from 'react';
 import { Redirect, useHistory } from "react-router-dom";
-
+​
 import { AuthenticationContext } from '../App.js';
 import API from '../utils/API.js';
-
-
+​
+​
 function LogInForm (){
   const history = useHistory();
   const [ email,setEmail ] = useState('');
