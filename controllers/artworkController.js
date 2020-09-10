@@ -42,24 +42,25 @@ module.exports = {
             .find( { user: req.params.id } )
                 .populate( 'commentsCount' )
                 .populate( 'likesCount' )
-                .then( dbModel => {
-                    return dbModel.filter( function( pValue ){
-                        let lKeepElement = false;
-                        if(
-                            pValue.public
-                            || (
-                                req.user
-                                && (
-                                    rep.user.type === 'admin'
-                                    || req.user._id == pValue.user
-                                )
-                            )
-                        ) {
-                            lKeepElement = true;
-                        }
-                        return lKeepElement;
-                    } );
-                })
+                // .then( dbModel => {
+                    // return dbModel.filter( function( pValue ){
+                    //     console.log(pValue)
+                    //     let lKeepElement = false;
+                    //     if(
+                    //         pValue.public
+                    //         || (
+                    //             req.user
+                    //             && (
+                    //                 rep.user.type === 'admin'
+                    //                 || req.user._id == pValue.user
+                    //             )
+                    //         )
+                    //     ) {
+                    //         lKeepElement = true;
+                    //     }
+                    //     return lKeepElement;
+                    // } );
+                // })
                 .then( dbModel => res.json( dbModel ) )
                 .catch( err => res.status( 422 ).json( err ) );
     },

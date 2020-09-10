@@ -13,6 +13,7 @@ export default {
   getUserArtwork: function(userId){
     return axios.get(`/api/users/${userId}/artworks`)
   },
+
   //GET 
   // Gets the book with the given id
   getBook: function(id) {

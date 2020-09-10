@@ -3,14 +3,62 @@ import './ArtistPage.css'
 import {Link, useLocation} from 'react-router-dom'
 import ArtistWork from '../components/ArtistWork'
 import API from "../utils/API"
+import axios from "axios"
 
 
-function ArtistPage(props){
+function MyProfile(props){
+
+  const state = {
+    name: null,
+    description: null,
+    type: null,
+    picture: null,
+    video: null,
+    user: userId
+  }
+
+  console.log(state)
+  // function handleSubmit(e){  (e) => {
+  //   e.preventDefault();
+  //   console.log(this.state)
+
+  //   // if (formValid(this.state)) {
+
+  //     //TH?iS FORM IS VALID
+  //     axios.post('/api/artworks', {...this.state})
+  //     // axios.post('/api/users', {...this.state})
+
+
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  //     //INSTRUCTIONS TO SUBMIT
+  //   // } else {
+  
+  //   //   //FORM WAS NOT VALID
+  //   //   console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+  //   }
+  // }
+  
+
+  // function handleChange(e){ e => {
+  //   e.preventDefault();
+  //   const { name, value } = e.target;
+  
+  // }}
+
+    console.log("hi")
+    console.log(props)
   console.log(props.location.state.id);
   const userId = props.location.state.id;
 
   const [user, setUser] = useState ([{}])
-  const [artwork, setArtwork] = useState ([{}])
+  const [artwork, setArtwork] = useState ()
+  console.log(user)
+  console.log(artwork)
 
   useEffect ( () => {
     API.getUser(userId).then(data => {
@@ -88,18 +136,53 @@ function ArtistPage(props){
             <div className="row">
            
            {(artwork ? artwork.map(piece => (
+               <>
               <ArtistWork name={piece.name}
                           des ={piece.description}
                           type={piece.type}
                           picture={piece.picture}
                           video={piece.video}/>
-
-
+                
+                <button onClick={()=>editPiece()}>Edit Piece</button>
+                </>
            )
-
+                
            ):<br></br>)}
            
+           Add Artwork
+<form className="needs-validation" novalidate="">
 
+                      
+<h2>Add Artwork</h2>
+
+<div className="mb-3">
+<label for="email">Picture</label>
+<input  type="link" className="form-control" id="picture" placeholder=""/>
+</div>
+
+<div className="mb-3">
+<label for="email">Video</label>
+<input  type="link" className="form-control" id="video" placeholder=""/>
+</div>
+
+<div className="mb-3">
+<label for="email">Name</label>
+<input type="text" className="form-control" id="name" placeholder=""/>
+</div>
+
+<div className="mb-3">
+<label for="email">Description</label>
+<input  type="text" className="form-control" id="description" placeholder=""/>
+</div>
+
+<div className="mb-3">
+<label for="email">Type</label>
+<input  type="text" className="form-control" id="type" placeholder=""/>
+</div>
+
+
+<button className="btn btn-lg btn-primary btn-block" type="submit" >Add Artwork</button>
+</form>
               
             </div>
           </div>
@@ -109,4 +192,4 @@ function ArtistPage(props){
 
     )
 }
-export default ArtistPage
+export default MyProfile
