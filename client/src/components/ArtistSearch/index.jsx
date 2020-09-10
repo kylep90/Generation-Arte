@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ArtistSearch ()
+function ArtistSearch (props)
 {
     return(
     <section className="pt-5 pb-5 mt-0 align-items-center d-flex bg-light" style={{minHeight: "60vh"}}>
@@ -16,7 +16,7 @@ function ArtistSearch ()
       <form className="form-noborder">
         <div className="form-row mb-5">
           <div className="col-lg-6 col-sm-12 form-group">
-            <input className="form-control form-control-lg" placeholder="Search keyword" type="text"/>
+            <input className="form-control form-control-lg" onChange={(event)=>props.setSearchValue(event.target.value)} placeholder="Search keyword" type="text"/>
           </div>
           <div className="col-lg-3 col-sm-12 form-group">
             <select className="custom-select-lg custom-select  ">

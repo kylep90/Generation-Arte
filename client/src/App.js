@@ -107,6 +107,7 @@ function App() {
       console.log(data)
       setArtworks(data.data)
     })
+
   }, [])
   return (
     <AuthenticationContext.Provider
@@ -131,7 +132,7 @@ function App() {
         </Route>
         <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
-        <Route  path="/ArtistPage" render={()=> <ArtistPage users={users} artworks={artworks}/>}>
+        <Route  path="/ArtistPage" component={ArtistPage}>
         </Route>
       </Switch> 
       <GFooter />     
