@@ -20,7 +20,9 @@ import ArtistDirectory from "./pages/ArtistDirectory"
 import AboutUs from "./pages/AboutUs"
 import UpdateInfo from "./pages/UpdateInfo";
 import LogInForm from "./pages/LogInForm"
-import ArtistPage from "./pages/ArtistPage"
+import ArtistPage from "./pages/ArtistPage";
+import MyProfile from "./pages/MyProfile";
+
 export const AuthenticationContext = React.createContext();
 const initialAuthenticationState = {
   isAuthenticated: false,
@@ -136,6 +138,8 @@ function App() {
         <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
         <Route  path="/ArtistPage" component={ArtistPage}>
+        </Route>
+        <Route  path="/MyProfile" component={MyProfile}>
         </Route>
         <Route  path="/ContactUs" component={ContactUs}>
         </Route>

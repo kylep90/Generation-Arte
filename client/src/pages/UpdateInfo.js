@@ -53,6 +53,13 @@ function UpdateInfo(){
   //   })
   // }, [])
 
+  function addArtwork(e) {
+
+    
+
+    console.log("Button clicked");
+  }
+
     return(
         <section className="pt-5 pb-5">
         <div className="container">
@@ -188,15 +195,12 @@ function UpdateInfo(){
                         <label for="address2">  Twitter<span className="text-muted">(Optional)</span></label>
                         <input type="text" className="form-control" id="address2" placeholder="" name="twitterUrl" value={ state.twitterUrl } onChange={ handleInputChange } />
                       </div>
-                      <button class="btn btn-primary" type="submit">Submit</button>
+                      <button className="btn btn-lg btn-primary btn-block" type="Update Info">Update Info</button>
                       </form>
                       <hr className="mb-4"/>
 
                       {/* Adding Artwork */}
-                      
-
-                          
-                          </div>
+                      </div>
                           
                     </div>
     

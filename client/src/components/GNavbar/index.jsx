@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 // import './navbar.css'
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { AuthenticationContext } from '../../App.js'
 import API from '../../utils/API';
 import { useHistory } from "react-router-dom";
@@ -11,6 +11,9 @@ function Navbar (props) {
   const picture = props.user?props.user.picture : ""
   const firstName = props.user?props.user.firstName : ""
   const history = useHistory();
+
+  const [userId, setUserId] = useState()
+
 return(
        
 <nav className="navbar navbar-expand-lg navbar-dark border border-dark bg-dark">
@@ -60,7 +63,9 @@ return(
             </ul>   
               { (() => {
                 if ( authenticationState.isAuthenticated && authenticationState.user ){
+                  console.log(authenticationState.user.id)
                   return(
+                    
                     <ul className="navbar-nav">
                       <li className="nav-item dropdown">
                         <Link className="nav-link" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +73,7 @@ return(
                           <i className="fa fa-angle-down   "/>
                         </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <Link className="dropdown-item" href="/">Profile</Link>
+                          <Link className="dropdown-item" to={{pathname:"/MyProfile", state:{id:authenticationState.user.id}}}>Profile</Link>
                           <Link  className="dropdown-item" to="/UpdateInfo">Update Info</Link>
                           <div className="dropdown-divider"></div>
                           <Link className="dropdown-item" onClick={ () => {

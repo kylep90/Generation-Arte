@@ -192,6 +192,18 @@ const lData = {
             // !! We should have varied for testing
             public: false
 
+        },
+        {
+            "_id": "5f597feb1b33e76284d8d23e",
+            "name": "LasMariachis",
+            "description": "Test 2",
+            "type": "music",
+            "picture": "",
+            "video": "https://www.youtube.com/watch?v=VxmMydZfJxs",
+            "user": "5f596d0a9dfbd735d4d911ef",
+            "public": false,
+            "__v": 0,
+            "id": "5f597feb1b33e76284d8d23e"
         }
     ],
     events: [
