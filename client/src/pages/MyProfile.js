@@ -143,7 +143,7 @@ function MyProfile(props){
                           picture={piece.picture}
                           video={piece.video}/>
                 
-                <button onClick={()=>editPiece()}>Edit Piece</button>
+                <button >Edit Piece</button>
                 </>
            )
                 
