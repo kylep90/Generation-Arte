@@ -9,10 +9,13 @@ import API from './utils/API'
 // Components
 import GNavbar from "./components/GNavbar/index.jsx";
 import GFooter from "./components/GFooter/index.jsx";
+import ContactForm from "./components/ContactForm/ContactForm";
+
 
 //Pages
 import Home from "./pages/Home"
 import WhatsOn from "./pages/WhatsOn"
+import ContactUs from "./pages/ContactUs"
 import ArtistDirectory from "./pages/ArtistDirectory"
 import AboutUs from "./pages/AboutUs"
 import UpdateInfo from "./pages/UpdateInfo";
@@ -133,6 +136,8 @@ function App() {
         <Route path="/UpdateInfo" component={UpdateInfo}>
         </Route>
         <Route  path="/ArtistPage" component={ArtistPage}>
+        </Route>
+        <Route  path="/ContactUs" component={ContactUs}>
         </Route>
       </Switch> 
       <GFooter />     
