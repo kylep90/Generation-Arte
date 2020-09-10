@@ -7,6 +7,7 @@ import SignUpForm from '../components/SignUpForm/SignUpForm'
 
 
 
+
 function Home (){  
     return(
 <section className="pt-4 pb-3 mt-0 d-flex bg-dark"  style={{backgroundImage: "url(" + calaveras  + ")", minHeight: "100vh", backgroundSize: "cover"}}>
