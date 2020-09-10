@@ -49,5 +49,11 @@ export default {
   },
   logout: function(){
     return axios.get( '/api/auth/logout' )
-  }  
+  }, 
+  updateUser: function( pUserId, pUserDetails ){
+    return axios.put(
+      `/api/user/${ pUserId }/`,
+      pUserDetails
+    );
+  } 
 };

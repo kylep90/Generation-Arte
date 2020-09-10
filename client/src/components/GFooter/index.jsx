@@ -23,7 +23,7 @@ function GFooter (){
             
              
               <div className="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-right">
-                © 2018 Bootstraptor. All Rights Reserved
+                © 2020. GENERATION ARTE. All Rights Reserved
               </div>
             </div>
           

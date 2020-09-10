@@ -49,7 +49,7 @@ return(
           
               </li>
               <li className="nav-item mr-3">
-                <Link className="nav-link" href="/ContactUs">Contact Us</Link>
+                <Link className="nav-link" to="/ContactUs">Contact Us</Link>
               </li>
               { (() => {
                 if ( !authenticationState.isAuthenticated ){

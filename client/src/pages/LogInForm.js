@@ -37,7 +37,6 @@ function LogInForm (){
                         }
                       } );
                   } }>
-                    <img className="ml-md-3 mr-3 mr-md-0 order-1 img-fluid rounded  mb-4" src="https://via.placeholder.com/80/5fa9f8/fff" alt="Generic"/>
                     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                     {(() => {
                       if ( error ) {
