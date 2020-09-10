@@ -17,7 +17,8 @@ function Home (){
               <div className="container-fluid align-self-start   mt-2 mb-2">
                 <div className="row">
                   <div className="col-md-3 col-5">
-                    <h4 className="mt-1 text-white display-5">Generation Artes</h4>
+                    <h4 className="mt-1 text-white display-5">Welcome to Generation Artes</h4>
+                    <h4 className="big text-white">A platform celebrating the local and international talent in CDMX.</h4>
                   </div>
                   <div className="col-md-9 col-7 text-right">
                     <div className="row align-items-center">
@@ -33,16 +34,13 @@ function Home (){
               <div className="container-fluid align-self-center     mb-2">
                 <div className="row justify-content-center">
                   <div className="col-12 col-md-6">
-                    <h3 className="small text-white">W E L C O M E</h3>
-                    <h1 className="  mb-0 pt-sm-4 text-white textShadow" >This is Generation Artes
-                      <br/>A platform celebrating the local and international
-                      <br/> talent in CDMX. </h1>
-                      <SignUpForm/>
+                    <SignUpForm/>
+                    <h1 className="  mb-0 pt-sm-4 text-white textShadow" ></h1>
                   </div>
                 </div>
               </div>
             </div>
-           
+          
 
     
               </div>
