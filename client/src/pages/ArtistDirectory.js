@@ -6,6 +6,11 @@ import ArtistSearch from '../components/ArtistSearch'
 function ArtistDirectory(props){
 
     const [searchValue, setSearchValue] = useState("")
+    // const [filterValue, setFilterValue] = useState("")
+
+    // const handleChange = (e) =>{
+    //     setFilterValue(e.target.value)
+    // }
 
 
     const users = props.users;  
@@ -14,16 +19,32 @@ function ArtistDirectory(props){
 
     console.log(searchValue)
 
-        
-    
 
     return (
 <>
         <ArtistSearch setSearchValue={setSearchValue}/>    
         
         {(searchValue ? users.filter((user)=>user.firstName.toLowerCase().includes(searchValue)||user.lastName.toLowerCase().includes(searchValue)||user.alias.toLowerCase().includes(searchValue)||user.industry.toLowerCase().includes(searchValue)||user.specific.toLowerCase().includes(searchValue)||user.bio.toLowerCase().includes(searchValue)) : users).map(user => (
-   
+        
         // const userCard = users.map((user) =>  
+    <ArtistCard name={user.firstName} 
+                last={user.lastName}
+                alias={user.alias}
+                industry={user.industry}
+                specific={user.specific}
+                pic={user.picture}
+                bio={user.bio}
+                facebook={user.facebookUrl} 
+                twitter={user.twitterUrl}
+                instagram={user.instagramUrl}
+                youtube={user.youtubeUrl}
+                id={user._id}
+                >
+                
+                </ArtistCard> ))}
+        
+{/* {(filterValue ? users.filter((user)=>user.industry.toLowerCase().includes(filterValue)) : users).map(user => (
+        
     <ArtistCard name={user.firstName} 
                 last={user.lastName}
                 alias={user.alias}
@@ -39,8 +60,7 @@ function ArtistDirectory(props){
                 // artwork={artworks[1].video}
                 >
                 
-                </ArtistCard> ))}
-        
+                </ArtistCard> ))} */}
          
         </>
 
