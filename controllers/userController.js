@@ -45,7 +45,7 @@ module.exports = {
         let lRequestBody = { ...req.body };
         if (
             !req.user
-            || ( req.user && req.user.type !== 'admin')
+            // || ( req.user && req.user.type !== 'admin')
         ){
             return res.status( 403 ).json( {
                 error: 'Forbidden'
