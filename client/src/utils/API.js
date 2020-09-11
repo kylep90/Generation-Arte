@@ -51,7 +51,7 @@ export default {
   }, 
   updateUser: function( pUserId, pUserDetails ){
     return axios.put(
-      `/api/user/${ pUserId }/`,
+      `/api/users/${ pUserId }/`,
       pUserDetails
     );
   } 

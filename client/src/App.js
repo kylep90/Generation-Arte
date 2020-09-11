@@ -30,7 +30,7 @@ const initialAuthenticationState = {
 const authenticationReducer = ( state,action ) => {
   switch ( action.type ){
     case 'login':
-      if ( state.isAuthenticated ){
+      if ( state.isAuthenticated && !action.force ){
         return state
       }
       let lAuthentication = {

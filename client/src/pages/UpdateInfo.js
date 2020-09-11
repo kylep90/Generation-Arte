@@ -89,6 +89,17 @@ function UpdateInfo(){
                .then( ( pData ) => {
                    if( pData ){
                        setMessage( 'Details Updated' );
+                       API.getCurrentUser()
+                       .then( ( pData ) => {
+                         if ( pData ){
+                          authenticationDispatch( {
+                            type: 'login',
+                            force: true,
+                            user: pData.data,
+                            lastCheck: new Date()
+                          } );
+                         }
+                       });
                    } else {
                        setError( 'An error ocurred, fix the errors in the form' );
                    }
