@@ -2,7 +2,7 @@ const mongoose = require( 'mongoose' );
 const bcrypt = require ( 'bcryptjs' );
 const db = require( '../models' );
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/reactreadinglist';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://generationarte:nDCI2HkmTS7oRnxn@cluster0.5wmcu.mongodb.net/generationarte?retryWrites=true&w=majority';
 // Connect to the Mongo DB
 mongoose.connect( MONGODB_URI, {
     useNewUrlParser: true,

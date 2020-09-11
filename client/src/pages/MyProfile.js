@@ -7,53 +7,43 @@ import axios from "axios"
 
 
 function MyProfile(props){
+  console.log(props)
 
-  const state = {
+  const [state, setState] = useState({
     name: null,
     description: null,
     type: null,
     picture: null,
     video: null,
-    user: userId
+    user: null,
+    public: false
+  })
+  
+    useEffect(()=>{
+      setUserID()
+    },[])
+
+  function setUserID(){
+    setState({...state,
+      user: props.location.state.id
+    })
   }
 
-  console.log(state)
-  // function handleSubmit(e){  (e) => {
-  //   e.preventDefault();
-  //   console.log(this.state)
+  function handleChange(e){ 
+        e.preventDefault();
+    setState({
+      ...state, 
+      [e.target.name] : e.target.value
+    }) ;
+  }
 
-  //   // if (formValid(this.state)) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios.post('/api/artworks', {...state})
+    console.log(state)
+  }
 
-  //     //TH?iS FORM IS VALID
-  //     axios.post('/api/artworks', {...this.state})
-  //     // axios.post('/api/users', {...this.state})
-
-
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  //     //INSTRUCTIONS TO SUBMIT
-  //   // } else {
-  
-  //   //   //FORM WAS NOT VALID
-  //   //   console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-  //   }
-  // }
-  
-
-  // function handleChange(e){ e => {
-  //   e.preventDefault();
-  //   const { name, value } = e.target;
-  
-  // }}
-
-    console.log("hi")
-    console.log(props)
-  console.log(props.location.state.id);
-  const userId = props.location.state.id;
+  const userId = props.location.state.id
 
   const [user, setUser] = useState ([{}])
   const [artwork, setArtwork] = useState ()
@@ -143,45 +133,50 @@ function MyProfile(props){
                           picture={piece.picture}
                           video={piece.video}/>
                 
-                <button >Edit Piece</button>
+                {/* <button >Edit Piece</button> */}
                 </>
            )
                 
            ):<br></br>)}
            
-           Add Artwork
-<form className="needs-validation" novalidate="">
+ <h2>Add Artwork</h2>   
+<form className="needs-validation" onSubmit={handleSubmit}novalidate="">
 
                       
-<h2>Add Artwork</h2>
+  
 
-<div className="mb-3">
-<label for="email">Picture</label>
-<input  type="link" className="form-control" id="picture" placeholder=""/>
-</div>
+  <div>
 
-<div className="mb-3">
-<label for="email">Video</label>
-<input  type="link" className="form-control" id="video" placeholder=""/>
-</div>
+      <div className="mb-3">
+      <label for="email">Name</label>
+      <input onChange={handleChange} name="name" type="text" className="form-control" id="name" placeholder=""/>
+      </div>
 
-<div className="mb-3">
-<label for="email">Name</label>
-<input type="text" className="form-control" id="name" placeholder=""/>
-</div>
+      <div className="mb-3">
+      <label for="email">Picture</label>
+      <input onChange={handleChange} name="picture" type="link" className="form-control" id="picture" placeholder=""/>
+      </div>
 
-<div className="mb-3">
-<label for="email">Description</label>
-<input  type="text" className="form-control" id="description" placeholder=""/>
-</div>
+      <div className="mb-3">
+      <label for="email">Video</label>
+      <input onChange={handleChange} name="video" type="link" className="form-control" id="video" placeholder=""/>
+      </div>
 
-<div className="mb-3">
-<label for="email">Type</label>
-<input  type="text" className="form-control" id="type" placeholder=""/>
-</div>
+
+
+      <div className="mb-3">
+      <label for="email">Description</label>
+      <input onChange={handleChange} name="description"type="text" className="form-control" id="description" placeholder=""/>
+      </div>
+
+      <div className="mb-3">
+      <label for="email">Type</label>
+      <input onChange={handleChange} name="type" type="text" className="form-control" id="type" placeholder=""/>
+      </div>
 
 
 <button className="btn btn-lg btn-primary btn-block" type="submit" >Add Artwork</button>
+  </div>
 </form>
               
             </div>
