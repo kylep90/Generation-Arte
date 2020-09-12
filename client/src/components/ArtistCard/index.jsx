@@ -40,13 +40,13 @@ return (
     <div className="col-md-8">
       
       <div className="card-body">
-        <Link role="button" style={{textDecoration:"none"}} className="artistCard"  to={{pathname:"/ArtistPage", state:{id:props.id}}}>
-        <h5 className="card-title">Name: {props.name} {props.last}</h5>
+        <Link  style={{color:"black"}} className="artistCard"  to={{pathname:"/ArtistPage", state:{id:props.id}}}>
+        <h5 className="card-title" >Name: {props.name} {props.last}</h5></Link>
         <h5 className="card-text">Alias: {props.alias}</h5>
         <p className="card-text">Industry: {props.industry}</p>
         <p className="card-text">Specific: {props.specific}</p>
         <p className="card-text">Bio: {props.bio}</p>
-        </Link>
+        
         <div className="row row-cols-1 row-cols-md-3">
         
         {props.facebook ? 
