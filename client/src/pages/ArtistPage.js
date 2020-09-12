@@ -35,7 +35,7 @@ function ArtistPage(props){
         <div className="">
           <div className="container  ">
             <div className="row   justify-content-center header-h100  d-flex  ">
-              <div className="col-md-4  shadow align-self-center card p-3 bg-light text-dark pt-4 pb-4">
+              <div className="col-md-8  shadow align-self-center card p-3 bg-light text-dark pt-4 pb-4">
                 <img className="rounded-circle shadow align-self-center img-fluid" style={{maxWidth:"150px"}} src={user.picture} alt="pc"/>
                 <blockquote className="pull-quote text-center  ">
                   <cite className="text-uppercase  "> {user.firstName} {user.lastName}
@@ -53,22 +53,22 @@ function ArtistPage(props){
                     {user.twitterUrl ? 
                     <a href={user.twitterUrl} role="button" className="  p-2 m-2  ">
                       <i className="fab fa-twitter fa-lg   " aria-hidden="true"></i>
-                    </a>:<p></p>}
+                    </a>:<div></div>}
 
                     {user.facebookUrl ?
                     <a href={user.facebookUrl} role="button" className="  p-2 m-2  ">
                       <i className="fab fa-facebook fa-lg  " aria-hidden="true"></i>
-                    </a>:<p></p>}
+                    </a>:<div></div>}
 
                     {user.instagramUrl ?
                     <a href={user.instagramUrl} role="button" className="  p-2 m-2  ">
                       <i className="fab fa-instagram fa-lg  " aria-hidden="true"></i>
-                    </a> :<p></p>}
+                    </a> :<div></div>}
 
                     {user.youtubeUrl ?
                     <a href={user.youtubeUrl} role="button" className="  p-2 m-2  ">
                       <i className="fab fa-youtube fa-lg  " aria-hidden="true"></i>
-                    </a> : <p></p> }
+                    </a> : <div></div> }
                     <img className="mt-3 img-fluid" alt="100%x280" style={{height: "280px", width: "100%"}} src="https://via.placeholder.com/300x250/5fa9f8/ffffff" data-holder-rendered="true"/>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ function ArtistPage(props){
         </div>
       </section>
       
-      <section className="">
+      <div className="">
 
         <div className="album">
             
@@ -104,7 +104,7 @@ function ArtistPage(props){
             </div>
           </div>
         </div>
-      </section>
+      </div>
       </>
 
     )

@@ -4,6 +4,7 @@ import {Link, useLocation} from 'react-router-dom';
 import { AuthenticationContext } from '../../App.js'
 import API from '../../utils/API';
 import { useHistory } from "react-router-dom";
+import GEN from "../../assets/images/GEN.jpg"
 
 // src={props.users[0].picture} 
 function Navbar (props) {
@@ -19,7 +20,7 @@ return(
 <nav className="navbar navbar-expand-lg navbar-dark border border-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" href="index.html">
-            <img src="https://artfair.co.nz/wp-content/uploads/2016/02/MY-ART-Logo.jpg" alt="UI Kit" style={{width: "100px"}}/>
+            <img src={GEN} alt="UI Kit" style={{width: "100px"}}/>
           </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

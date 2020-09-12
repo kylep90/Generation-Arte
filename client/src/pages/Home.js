@@ -17,7 +17,7 @@ function Home (){
               <div className="container-fluid align-self-start   mt-2 mb-2">
                 <div className="row">
                   <div className="col-md-3 col-5">
-                    <h4 className="mt-1 text-white display-5">Welcome to Generation Artes</h4>
+                    <h2 className="mt-1 text-white">Welcome to Generation Artes</h2>
                     <h4 className="big text-white">A platform celebrating the local and international talent in CDMX.</h4>
                   </div>
                   <div className="col-md-9 col-7 text-right">

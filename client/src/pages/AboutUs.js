@@ -1,5 +1,6 @@
 import React from 'react'
 import platos from "../assets/images/platos.jpg"
+import GEN from "../assets/images/GEN.jpg"
 
 function AboutUs (){
 return(
@@ -7,6 +8,7 @@ return(
         <div class="container">
           <div class="row align-items-center justify-content-between ">
             <div class="col-12 col-md-4 ">
+            {/* <img src={GEN} alt="UI Kit" style={{width: "100px"}}/> */}
               {/* <h1 class="mb-3 mt-5">Who are we?</h1>
               <p class="lead  ">We are a collective community of artists who want to create a platform for others to connect, share and promote their work .</p> */}
               <h1 class="mb-3 mt-5">Mission Statement</h1>
@@ -23,7 +25,7 @@ return(
             </div>
             <div class="col-12 col-md-7   mt-4 mt-md-0">
               <div class="embed-responsive embed-responsive-16by9 shadow-lg">
-                <img class="embed-responsive-item" src={platos} />
+                <img class="embed-responsive-item" src={GEN} />
               </div>
             </div>
           </div>
