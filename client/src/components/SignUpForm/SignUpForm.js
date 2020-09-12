@@ -170,24 +170,9 @@ console.log(this.state)
               <label htmlFor="alias">Alias</label>
               <input
                 className={formErrors.alias.length > 0 ? "error" : null}
-                placeholder="alias"
+                placeholder="Alias"
                 type="text"
                 name="alias"
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.alias.length > 0 && (
-                <span className="errorMessage">{formErrors.alias}</span>
-              )}
-            </div>
-
-            <div className="bio">
-              <label htmlFor="bio">bio</label>
-              <input
-                className={formErrors.bio.length > 0 ? "error" : null}
-                placeholder="bio"
-                type="text"
-                name="bio"
                 noValidate
                 onChange={this.handleChange}
               />
@@ -210,12 +195,29 @@ console.log(this.state)
                 <span className="errorMessage">{formErrors.email}</span>
               )}
             </div>
+            
+            <div className="bio">
+              <label htmlFor="bio">Bio</label>
+              <input
+                className={formErrors.bio.length > 0 ? "error" : null}
+                placeholder="Bio"
+                type="text"
+                name="bio"
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.alias.length > 0 && (
+                <span className="errorMessage">{formErrors.alias}</span>
+              )}
+            </div>
+
+
 
             <div className="picture">
               <label htmlFor="picture">Your Picture</label>
               <input
                 className={formErrors.picture.length > 0 ? "error" : null}
-                placeholder="picture"
+                // placeholder="picture"
                 type="picture"
                 name="picture"
                 noValidate
@@ -230,7 +232,7 @@ console.log(this.state)
               <label htmlFor="type">Type of User (Admin or User)</label>
               <input
                 className={formErrors.type.length > 0 ? "error" : null}
-                placeholder="type"
+                placeholder="Admin or User"
                 type="type"
                 name="type"
                 noValidate

@@ -14,11 +14,11 @@ light green: #A3C4BC
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #258ea6;
+    /* background-color: #258ea6; */
   }
   
   .form-wrapper {
-    width: 400px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
@@ -43,6 +43,7 @@ light green: #A3C4BC
   }
   
   label {
+    display: inline-block;
     font-size: 0.8em;
     margin-bottom: 0.25em;
     color: #222;
@@ -50,6 +51,7 @@ light green: #A3C4BC
   }
   
   input {
+    display: inline-block;
     padding: 10px 10px;
     border-radius: 5px;
     outline: none;
@@ -83,7 +85,7 @@ light green: #A3C4BC
   .firstName,
   .lastName,
   .email,
-  .password {
+  .password{
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -96,7 +98,17 @@ light green: #A3C4BC
   
   .email,
   .password {
-    width: 100%;
+    width: 60%;
+  }
+
+  .alias,
+  .bio,
+  .picture,
+  .type {
+    margin-right:20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
   }
   
   .createAccount {

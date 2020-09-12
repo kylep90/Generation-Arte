@@ -138,7 +138,9 @@ function MyProfile(props){
            )
                 
            ):<br></br>)}
+           </div>
            
+  <div>
  <h2>Add Artwork</h2>   
 <form className="needs-validation" onSubmit={handleSubmit}novalidate="">
 
@@ -178,8 +180,9 @@ function MyProfile(props){
 <button className="btn btn-lg btn-primary btn-block" type="submit" >Add Artwork</button>
   </div>
 </form>
+</div>
               
-            </div>
+            
           </div>
         </div>
       </section>
